@@ -2,6 +2,7 @@ package nju.swi.conf;
 
 import nju.swi.controller.HomeController;
 import nju.swi.controller.StudentController;
+import nju.swi.dao.HomeworkDao;
 import nju.swi.dao.MaterialDao;
 import nju.swi.dao.StudentDao;
 
@@ -39,7 +40,7 @@ public class AppConfig extends JFinalConfig {
 		me.add(activeRecordPlugin);
 		activeRecordPlugin.addMapping("student", "id", StudentDao.class);
 		activeRecordPlugin.addMapping("material", "id", MaterialDao.class);
-		
+		activeRecordPlugin.addMapping("homework", "id", HomeworkDao.class);
 		me.add(new EhCachePlugin());
 	}
 
