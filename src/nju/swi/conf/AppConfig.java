@@ -2,6 +2,7 @@ package nju.swi.conf;
 
 import nju.swi.controller.HomeController;
 import nju.swi.controller.StudentController;
+import nju.swi.dao.MaterialDao;
 import nju.swi.dao.StudentDao;
 
 import com.jfinal.config.Constants;
@@ -37,6 +38,7 @@ public class AppConfig extends JFinalConfig {
 		ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(activeRecordPlugin);
 		activeRecordPlugin.addMapping("student", "id", StudentDao.class);
+		activeRecordPlugin.addMapping("material", "id", MaterialDao.class);
 		
 		me.add(new EhCachePlugin());
 	}

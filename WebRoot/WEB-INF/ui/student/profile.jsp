@@ -10,7 +10,58 @@
 
     <!--main content start-->
     <section class="main-content-wrapper">
-        
+        <div class="pageheader">
+            <h1>个人信息</h1>
+        </div>
+        <section id="main-content" class="animated fadeInUp">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">详情</h3>
+                            <div class="actions pull-right">
+                                <i class="fa fa-expand"></i>
+                                <i class="fa fa-chevron-down"></i>
+                                <i class="fa fa-times"></i>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal form-border" id="form">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">姓名</label>
+                                    <label class="col-sm-6 control-label">金程炜</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">性别</label>
+                                    <label class="col-sm-6 control-label">男</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">生日</label>
+                                    <label class="col-sm-6 control-label">1993-10-07</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">邮箱</label>
+                                    <label class="col-sm-6 control-label">982595878@qq.com</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">手机</label>
+                                    <label class="col-sm-6 control-label">18251182525</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">地址</label>
+                                    <label class="col-sm-6 control-label">中国</label>
+                                </div>
+                                <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6"><button type="button" class="btn btn-danger btn-block" onclick="javascript:logout();">注销登录</button></div>
+                                <div class="col-sm-3"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
     <!--main content end-->
 </section>

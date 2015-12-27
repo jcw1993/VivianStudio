@@ -71,17 +71,3 @@
     </nav>
 </aside>
 <!--sidebar left end-->
-
-<script type="text/javascript">
-function logout() {
-	$.ajax({
-		url:"../logout",
-		method:"post",
-		success:function(r) {
-			if(r.code == 0) {
-				window.location = "../home";
-			}
-		}
-	});
-}	
-</script>

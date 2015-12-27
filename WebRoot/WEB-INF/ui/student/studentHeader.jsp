@@ -44,3 +44,17 @@
 
 	<script src="<c:url value="/assets/js/src/app2.js" />"></script>
 </head>
+
+<script type="text/javascript">
+function logout() {
+    $.ajax({
+        url:"../logout",
+        method:"post",
+        success:function(r) {
+            if(r.code == 0) {
+                window.location = "../home";
+            }
+        }
+    });
+}   
+</script>
