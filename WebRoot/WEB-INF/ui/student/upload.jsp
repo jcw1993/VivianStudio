@@ -36,7 +36,9 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="homework">文件</label>
                                     <div class="col-sm-6">
-										<input type="file" id="homework" class="form-control" />
+										<!-- <input type="file" id="homework" class="form-control" /> -->
+										<span class="file-input btn btn-block btn-primary btn-file">选择 <input type="file" multiple="">
+							            </span>
                                     </div>
                                 </div>
                                 <div class="form-group">
