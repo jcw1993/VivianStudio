@@ -12,10 +12,37 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.ehcache.CacheKit;
 
 public class HomeworkManager {
-	
 	private static Logger logger = LoggerFactory.getLogger(HomeworkManager.class);
+	private static final String ALL_HOMEWORK_KEY = "AllHomework";
+	
+	public GenericResult<List<Homework>> getAll() {
+		GenericResult<List<Homework>> result = new GenericResult<List<Homework>>();
+		List<Homework> allHomework = CacheKit.get(Homework.class.getName(), ALL_HOMEWORK_KEY);
+		if(null != allHomework && !allHomework.isEmpty()) {
+			result.setData(allHomework);
+		}else {
+			try {
+				List<HomeworkDao> homeworkDaos = HomeworkDao.getAll();
+				if(null != homeworkDaos && !homeworkDaos.isEmpty()) {
+					allHomework = new ArrayList<Homework>();
+					for(HomeworkDao dao : homeworkDaos) {
+						Homework homework = new Homework(dao);
+						allHomework.add(homework);
+					}
+				}
+				CacheKit.put(Homework.class.getName(), ALL_HOMEWORK_KEY, allHomework);
+				result.setData(allHomework);
+			}catch(Exception e) {
+				result.setCode(ResultCode.E_DATABASE_GET_ERROR);
+				logger.error("HomeworkManager getAll failed: " + e.getMessage());
+			}
+			
+		}
+		return result;
+	}
 	
 	public GenericResult<Integer> create(Homework homework) {
 		GenericResult<Integer> result = new GenericResult<Integer>();
@@ -31,40 +58,29 @@ public class HomeworkManager {
 		
 		if(insertId > 0) {
 			result.setData(insertId);
+			CacheKit.remove(Homework.class.getName(), ALL_HOMEWORK_KEY);
 		}else {
 			result.setCode(ResultCode.E_OTHER_ERROR);
 		}
 		return result;
 	}
 	
-	public GenericResult<Page<Homework>> search(Integer studentId, Integer page, Integer size) {
+	public GenericResult<Page<Homework>> search(Integer page, Integer size) {
 		GenericResult<Page<Homework>> result = new GenericResult<Page<Homework>>();
-		if(null == page || page < 1) {
-			page = 1;
-		}
-		if(null == size || size < 1) {
-			size = 1;
-		}
-		
-		try {
-			Page<HomeworkDao> daoPage = HomeworkDao.search(studentId, page, size);
-			if(null != daoPage && null != daoPage.getList() && !daoPage.getList().isEmpty()) {
-				
-				List<Homework> homeworkList = new ArrayList<Homework>();
-				for(HomeworkDao dao : daoPage.getList()) {
-					homeworkList.add(new Homework(dao));
-				}
-				
-				Page<Homework> homeworkPage = new Page<Homework>(homeworkList, daoPage.getPageNumber(), daoPage.getPageSize(), daoPage.getTotalPage(), daoPage.getTotalRow());
-				result.setData(homeworkPage);
+		GenericResult<List<Homework>> allResult = getAll();
+		if(allResult.getCode() == ResultCode.OK) {
+			int startIndex = (page - 1) * size;
+			int count = 0;
+			List<Homework> homeworkList = new ArrayList<Homework>();
+			int endIndex = Math.min(startIndex + size, allResult.getData().size());
+			for(int i = startIndex; i < endIndex; i++) {
+				homeworkList.add(allResult.getData().get(i));
 			}
-			
-		}catch(Exception e) {
-			result.setCode(ResultCode.E_DATABASE_GET_ERROR);
-			logger.error("homework search error: " + e.getMessage());
+			Page<Homework> notificationPage = new Page<Homework>(homeworkList, page, size, count / size, count);
+			result.setData(notificationPage);
+		}else {
+			result.setCode(allResult.getCode());
 		}
-		
 		return result;
 	}
-
 }

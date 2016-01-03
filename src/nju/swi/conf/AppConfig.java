@@ -1,10 +1,14 @@
 package nju.swi.conf;
 
+import nju.swi.controller.AdminController;
 import nju.swi.controller.HomeController;
 import nju.swi.controller.StudentController;
+import nju.swi.dao.GradesDao;
 import nju.swi.dao.HomeworkDao;
 import nju.swi.dao.MaterialDao;
+import nju.swi.dao.NotificationDao;
 import nju.swi.dao.StudentDao;
+import nju.swi.dao.StudentHomeworkDao;
 
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
@@ -31,6 +35,7 @@ public class AppConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/", HomeController.class);
 		me.add("/student", StudentController.class);
+		me.add("/admin", AdminController.class);
 	}
 
 	public void configPlugin(Plugins me) {
@@ -41,6 +46,9 @@ public class AppConfig extends JFinalConfig {
 		activeRecordPlugin.addMapping("student", "id", StudentDao.class);
 		activeRecordPlugin.addMapping("material", "id", MaterialDao.class);
 		activeRecordPlugin.addMapping("homework", "id", HomeworkDao.class);
+		activeRecordPlugin.addMapping("student_homework", StudentHomeworkDao.class);
+		activeRecordPlugin.addMapping("notification", NotificationDao.class);
+		activeRecordPlugin.addMapping("grades", GradesDao.class);
 		me.add(new EhCachePlugin());
 	}
 

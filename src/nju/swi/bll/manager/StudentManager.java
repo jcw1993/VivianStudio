@@ -12,6 +12,7 @@ import nju.swi.dao.StudentDao;
 import org.apache.commons.lang3.StringUtils;
 
 import com.jfinal.log.Logger;
+import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.ehcache.CacheKit;
 
 public class StudentManager {
@@ -46,6 +47,43 @@ public class StudentManager {
 		return result;
 	}
 	
+	public GenericResult<Page<Student>> search(String keyword, Integer page, Integer size) {
+		if(null != keyword) {
+			keyword = keyword.trim();
+		}
+		if(null == page || page < 1) {
+			page = 1;
+		}
+		if(null == size || size < 1) {
+			size = 1;
+		}
+		
+		GenericResult<Page<Student>> result = new GenericResult<Page<Student>>();
+		GenericResult<List<Student>> allResult = getAll();
+		if(allResult.getCode() == ResultCode.OK) {
+			int startIndex = (page - 1) * size;
+			int endIndex = startIndex + size;
+			int count = 0;
+			List<Student> studentList = new ArrayList<Student>();
+			for(Student student : allResult.getData()) {
+				if(StringUtils.isBlank(keyword) || (student.getName().contains(keyword))) {
+					if(count >= startIndex) {
+						studentList.add(student);
+					}
+					count++;
+					if(count >= endIndex) {
+						break;
+					}
+				}
+			}
+			Page<Student> studentPage = new Page<Student>(studentList, page, size, count / size, count);
+			result.setData(studentPage);
+		}else {
+			result.setCode(allResult.getCode());
+		}
+		return result;
+	}
+	
 	public GenericResult<Student> getById(int id) {
 		GenericResult<Student> result = new GenericResult<Student>();
 		GenericResult<List<Student>> allResult = getAll();
@@ -73,7 +111,7 @@ public class StudentManager {
 			result.setData(studentDao.getInt("id"));
 			CacheKit.remove(Student.class.getName(), ALL_STUDENT_KEY);
 		} catch (Exception e) {
-			result.setCode(ResultCode.E_DATABASE_UPDATE_ERROR);
+			result.setCode(ResultCode.E_DATABASE_INSERT_ERROR);
 			logger.error("create user error: " + e.getMessage());
 		}
 		return result;
