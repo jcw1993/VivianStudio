@@ -21,9 +21,7 @@
 		                <div class="panel-heading">
 		                    <h3 class="panel-title">通知列表</h3>
 		                    <div class="actions pull-right">
-		                        <i class="fa fa-expand"></i>
-		                        <i class="fa fa-chevron-down"></i>
-		                        <i class="fa fa-times"></i>
+		                        <button id="createBtn" type="button" class="btn btn-success btn-sm">发布通知</button>
 		                    </div>
 		                </div>
 		                <div class="panel-body">
@@ -32,6 +30,7 @@
                                     <tr>
                                         <th>标题</th>
                                         <th>内容</th>
+                                        <th>操作</th>
                                     </tr>
                                 </thead>
                                 <c:if test="${notifications != null}">
@@ -40,6 +39,9 @@
                                     <tr>
                                         <td>${notification.title}</td>
                                         <td>${notification.content}</td>
+                                        <td>
+                                        <button type="button" class="deleteBtn btn btn-danger btn-sm btn-trans" notificationId="${notification.id}">删除</button>
+                                        </td>
                                     </tr>
                					</c:forEach>
                                 </tbody>
@@ -55,9 +57,34 @@
     <!--main content end-->
 </section>
 
+<jsp:include page="../modal.jsp" flush="true" />
+
 <script type="text/javascript">
 $(function() {
 	$("#leftNav li:nth-child(3)").addClass("active");
+
+	$(".deleteBtn").click(function(e) {
+		var notificationId = $(this).attr("notificationId");
+		$.ajax({
+			url: "deleteNotification",
+			method: "post",
+			data: {
+				notificationId: notificationId
+			},
+			success: function(r) {
+				if(r.code == 0) {
+					location.reload();
+				}else {
+					showMessage("删除失败", "删除失败，请重试！");
+				}
+			}
+		});
+	});
+
+	$("#createBtn").click(function(e) {
+		location.href = "createNotificationPage";
+	});
+
 });
 </script>
 </body>

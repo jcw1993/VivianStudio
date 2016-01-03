@@ -23,7 +23,7 @@ public class NotificationManager {
 	
 	public GenericResult<List<Notification>> getAll() {
 		GenericResult<List<Notification>> result = new GenericResult<List<Notification>>();
-		List<Notification> allNotification = CacheKit.get(Student.class.getName(), ALL_NOTIFICATION_KEY);
+		List<Notification> allNotification = CacheKit.get(Notification.class.getName(), ALL_NOTIFICATION_KEY);
 		if(null != allNotification && !allNotification.isEmpty()) {
 			result.setData(allNotification);
 		}else {
@@ -36,7 +36,7 @@ public class NotificationManager {
 						allNotification.add(notification);
 					}
 				}
-				CacheKit.put(Student.class.getName(), ALL_NOTIFICATION_KEY, allNotification);
+				CacheKit.put(Notification.class.getName(), ALL_NOTIFICATION_KEY, allNotification);
 				result.setData(allNotification);
 			}catch(Exception e) {
 				result.setCode(ResultCode.E_DATABASE_GET_ERROR);
@@ -53,7 +53,7 @@ public class NotificationManager {
 			NotificationDao notificationDao = notification.toDao();
 			notificationDao.save();
 			result.setData(notificationDao.getInt("id"));
-			CacheKit.remove(Student.class.getName(), ALL_NOTIFICATION_KEY);
+			CacheKit.remove(Notification.class.getName(), ALL_NOTIFICATION_KEY);
 		} catch (Exception e) {
 			result.setCode(ResultCode.E_DATABASE_UPDATE_ERROR);
 			logger.error("create notification error: " + e.getMessage());
@@ -69,7 +69,7 @@ public class NotificationManager {
 			result.setCode(ResultCode.E_DATABASE_DELETE_ERROR);
 			logger.error("delete notification error: " + e.getMessage());
 		}
-		CacheKit.remove(Student.class.getName(), ALL_NOTIFICATION_KEY);
+		CacheKit.remove(Notification.class.getName(), ALL_NOTIFICATION_KEY);
 		return result;
 	}
 
