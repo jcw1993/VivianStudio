@@ -67,13 +67,11 @@ public class StudentManager {
 			List<Student> studentList = new ArrayList<Student>();
 			for(Student student : allResult.getData()) {
 				if(StringUtils.isBlank(keyword) || (student.getName().contains(keyword))) {
-					if(count >= startIndex) {
+					if(count >= startIndex && count < endIndex) {
 						studentList.add(student);
 					}
 					count++;
-					if(count >= endIndex) {
-						break;
-					}
+
 				}
 			}
 			Page<Student> studentPage = new Page<Student>(studentList, page, size, count / size, count);

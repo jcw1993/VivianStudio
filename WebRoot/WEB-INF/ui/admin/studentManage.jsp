@@ -35,6 +35,7 @@
                                         <th>年级</th>
                                         <th>手机</th>
                                         <th>邮箱</th>
+                                        <th>操作</th>
                                     </tr>
                                 </thead>
                                 <c:if test="${students != null}">
@@ -46,6 +47,7 @@
                                         <td>${student.levelId}</td>
                                         <td>${student.phone}</td>
                                         <td>${student.mail}</td>
+                                        <td><button type="button" class="deleteBtn btn btn-danger btn-sm btn-trans" studentId="${student.id}">删除</button></td>
                                     </tr>
                					</c:forEach>
                                 </tbody>
@@ -61,9 +63,29 @@
     <!--main content end-->
 </section>
 
+<jsp:include page="../modal.jsp" flush="true" />
+
 <script type="text/javascript">
 $(function() {
 	$("#leftNav li:nth-child(2)").addClass("active");
+
+    $(".deleteBtn").click(function(e) {
+        var studentId = $(this).attr("studentId");
+        $.ajax({
+            url: "deleteStudent",
+            method: "post",
+            data: {
+                studentId: studentId
+            },
+            success: function(r) {
+                if(r.code == 0) {
+                    location.reload();
+                }else {
+                    showMessage("删除失败", "删除失败，请重试！");
+                }
+            }
+         });
+    });
 });
 </script>
 </body>

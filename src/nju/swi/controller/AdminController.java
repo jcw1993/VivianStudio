@@ -34,6 +34,17 @@ public class AdminController extends BaseController {
 		renderJsp("admin/studentManage");
 	}
 	
+	@Before(POST.class)
+	public void deleteStudent() {
+		int studentId = getParaToInt("studentId");
+		if(studentId < 1) {
+			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
+		}
+		
+		NoneDataResult deleteResult = ManagerFactory.getStduentManager().delete(studentId);
+		renderJson(deleteResult);
+	}
+	
 	public void gradesManage() {
 		int levelId = getParaToInt("levelId");
 		if(levelId < 1) {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nju.swi.bll.model.Notification;
-import nju.swi.bll.model.Student;
 import nju.swi.common.GenericResult;
 import nju.swi.common.NoneDataResult;
 import nju.swi.common.ResultCode;
