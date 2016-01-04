@@ -13,4 +13,8 @@ public class GradesDao extends Model<GradesDao> {
 	public static List<GradesDao> getByLevel(int levelId) {
 		return dao.find("select * from grades where level_id = ? order by created_time desc", levelId);
 	}
+	
+	public static void delete(int id) {
+		dao.deleteById(id);
+	}
 }

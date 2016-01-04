@@ -5,6 +5,7 @@ import java.util.List;
 
 import nju.swi.bll.model.Grades;
 import nju.swi.common.GenericResult;
+import nju.swi.common.NoneDataResult;
 import nju.swi.common.ResultCode;
 import nju.swi.dao.GradesDao;
 
@@ -44,6 +45,18 @@ public class GradesManager {
 		} catch (Exception e) {
 			result.setCode(ResultCode.E_DATABASE_INSERT_ERROR);
 			logger.error("create gardes error: " + e.getMessage());
+		}
+		return result;
+	}
+	
+	public NoneDataResult delete(int id) {
+		NoneDataResult result = new NoneDataResult();
+		// TODO: delete cdn resource file
+		try {
+			GradesDao.delete(id);
+		} catch (Exception e) {
+			result.setCode(ResultCode.E_DATABASE_DELETE_ERROR);
+			logger.error("delete grades error: " + e.getMessage());
 		}
 		return result;
 	}

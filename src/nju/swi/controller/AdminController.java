@@ -1,8 +1,11 @@
 package nju.swi.controller;
 
+import java.io.File;
 import java.util.Date;
+import java.util.List;
 
 import nju.swi.bll.manager.ManagerFactory;
+import nju.swi.bll.model.Grades;
 import nju.swi.bll.model.Notification;
 import nju.swi.bll.model.Student;
 import nju.swi.common.GenericResult;
@@ -12,6 +15,7 @@ import nju.swi.common.ResultCode;
 import com.jfinal.aop.Before;
 import com.jfinal.ext.interceptor.POST;
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.upload.UploadFile;
 
 public class AdminController extends BaseController {
 	
@@ -31,7 +35,41 @@ public class AdminController extends BaseController {
 	}
 	
 	public void gradesManage() {
+		int levelId = getParaToInt("levelId");
+		if(levelId < 1) {
+			levelId = 1;
+		}
+		setAttr("levelId", levelId);
+		GenericResult<List<Grades>> gradesResult = ManagerFactory.getGradesManager().getByLevel(levelId);
+		if(gradesResult.getCode() == ResultCode.OK && null != gradesResult.getData() && !gradesResult.getData().isEmpty()) {
+			setAttr("gradesList", gradesResult.getData());
+		}
 		renderJsp("admin/gradesManage");
+	}
+	
+	public void createGradesPage() {
+		renderJsp("admin/gradesCreate");
+	}
+	
+	@Before(POST.class)
+	public void createGrades() {
+		UploadFile uploadFile = getFile();
+		File file = null;
+		int levelId = getParaToInt("levelId");
+		if(null != uploadFile && null != (file = uploadFile.getFile())) {
+			
+		}
+	}
+	
+	@Before(POST.class)
+	public void deleteGrades() {
+		int gradesId = getParaToInt("gradesId");
+		if(gradesId == 0) {
+			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
+		}
+		
+		NoneDataResult deleteResult = ManagerFactory.getGradesManager().delete(gradesId);
+		renderJson(deleteResult);
 	}
 	
 	public void notificationManage() {
