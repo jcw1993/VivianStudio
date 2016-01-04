@@ -23,7 +23,7 @@ public class AdminController extends BaseController {
 		String keyword = getPara("keyword");
 		int page = getParaToInt("pageIndex");
 		int size = getParaToInt("pageSize");
-		GenericResult<Page<Student>> studentResult = ManagerFactory.getStduentManager().search(keyword, page, 10);
+		GenericResult<Page<Student>> studentResult = ManagerFactory.getStudentManager().search(keyword, page, 10);
 		if(studentResult.getCode() == ResultCode.OK) {
 			setAttr("students", studentResult.getData().getList());
 			setAttr("baseUrl", "studentManage");
@@ -41,7 +41,7 @@ public class AdminController extends BaseController {
 			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
 		}
 		
-		NoneDataResult deleteResult = ManagerFactory.getStduentManager().delete(studentId);
+		NoneDataResult deleteResult = ManagerFactory.getStudentManager().delete(studentId);
 		renderJson(deleteResult);
 	}
 	

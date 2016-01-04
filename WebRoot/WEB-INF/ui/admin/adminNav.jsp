@@ -11,6 +11,13 @@
             <span>VIVIAN</span>STUDIO</a>
     </div>
     <!--logo end-->
+    <ul class="nav navbar-nav navbar-left">
+        <li class="toggle-navigation toggle-left">
+            <button class="sidebar-toggle" id="toggle-left">
+                <i class="fa fa-bars"></i>
+            </button>
+        </li>
+    </ul>
    
 	<ul class="nav navbar-nav navbar-right">
 	    <li class="dropdown profile hidden-xs">

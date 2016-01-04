@@ -9,7 +9,7 @@ public class ManagerFactory {
 	private static HomeworkManager homeworkManager = new HomeworkManager();
 	private static StudentHomeworkManager studentHomeworkManager = new StudentHomeworkManager();
 	
-	public static StudentManager getStduentManager() {
+	public static StudentManager getStudentManager() {
 		return studentManager;
 	}
 	
