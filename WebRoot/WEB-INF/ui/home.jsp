@@ -10,12 +10,12 @@
         <div class="navbar navbar-default navbar-static-top home-navbar" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
+                    </button> -->
                     <!--logo start-->
                     <div class="brand">
                         <a href="home" class="logo">
@@ -25,76 +25,29 @@
                     <!--logo end-->
                     
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav pull-right" id="main-menu">
+<!--                 <div class="navbar-collapse collapse">
+ -->                    <ul class="nav navbar-nav pull-right" id="">
                         <li><a href="#home">首页</a>
                         </li>
-                        <li><a href="#schedule">课程安排</a>
+                        <li><a href="schedule">课程安排</a>
                         </li>
                         <li><a href="#show">风采展示</a>
                         </li>
                         <li><a href="#contact">联系我们</a>
                         </li>
+                        <li class="pull-right"><a href="#contact">登录</a>
+                        </li>
                     </ul>
-                </div>
-            </div>
+<!--                 </div>
+ -->            </div>
         </div>
     </header>
 
-    <section id="home">
-        <div class="overlay-bg">
-            <div class="container">
-                <div class="hero">
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-8 col-md-5 col-lg-5 wow pulse">
-                            <header class="wow fadeInLeft">
-                                <h1>欢迎来到</h1>
-                            </header>
-                            <header class="wow fadeInRight">
-                                <h1>VivianStudio</h1>
-                            </header>
-                            <header class="wow fadeInTop">
-                                <a class="btn btn-success btn-trans btn-lg" href="javascript:window.location='loginPage'" role="button">马上报名</a>
-                            </header>
-                        </div>
-                        <div class="hidden-xs hidden-sm col-md-7 col-lg-7">
-                            <img src="assets/img/laptop.png" class="wow fadeInRight" alt="laptop">
-                        </div>
-                        <div class="col-xs-6 col-sm-4 hidden-md hidden-lg">
-                            <img src="assets/img/mobile.png" class="wow fadeInRight" alt="mobile">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-    </section>
-
-
-    <!-- Schedule Section
-    ================================================== -->
-    <section id="schedule">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img src="http://img02.taobaocdn.com/imgextra/i3/143770146417445852/TB2lB_LhVXXXXaYXpXXXXXXXXXX_!!100144377-0-taokezhan.jpg">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Show
+	<!-- Show
     ================================================== -->
     <section id="show">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <header>
-                        <h1>风采展示</h1>
-                    </header>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div id="myCarousel" class="carousel slide">
@@ -127,6 +80,151 @@
         </div>
 
     </section>
+    
+
+
+
+     <!-- Features Section
+    ================================================== -->
+    <section id="features">
+        <div class="container">
+            <div class="">
+                <div class="col-lg-12 text-center">
+                    <header>
+                        <p class="text-muted">何老师工作室 | Vivian Studio | 中学英语培优教育</p>
+                        <div class="spacer"></div>
+                    </header>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 text-center wow fadeInUp">
+                    <div class="icon-wrapper">
+                        <p class="icon-circle">
+                            <i class="icon icon-screen-smartphone"></i>
+                        </p>
+                    </div>
+                    <h4>最新课程</h4>
+                </div>
+                <div class="col-xs-3 text-center wow fadeInUp">
+                    <div class="icon-wrapper">
+                        <p class="icon-circle">
+                            <i class="icon icon-graph"></i>
+                        </p>
+                    </div>
+                    <h4>在线报名</h4>
+                </div>
+                <div class="col-xs-3 text-center wow fadeInUp">
+                    <div class="icon-wrapper">
+                        <p class="icon-circle">
+                            <i class="icon fa fa-html5"></i>
+                        </p>
+                    </div>
+                    <h4>学生寄语</h4>
+                </div>
+                <div class="col-xs-3 text-center wow fadeInUp">
+                    <div class="icon-wrapper">
+                        <p class="icon-circle">
+                            <i class="icon fa fa-google"></i>
+                        </p>
+                    </div>
+                    <h4>学员登录</h4>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+
+  <!-- News Section
+    ================================================== -->
+ <section id="news">
+        <div class="container">
+			<div class="row">
+            	<div class="col-md-12 wow vs-news">
+            		<div class="panel panel-primary">
+            			<div class="panel-heading">
+                             <h3 class="panel-title">今日头条</h3>
+                             
+                         </div>
+                         <div class="panel-body profile-wrapper">
+                            <div class="vs-news-content">
+	                             <div class="col-xs-3">
+	                                    <div class="profile-pic text-center">
+	                                        <img src="assets/img/team-3.jpg" alt="" class="img-circle">
+	                                    </div>
+	                             </div>
+	                             <div class="col-xs-9">
+	                                    <div class="profile-info">
+	                                        <h3>2016 最新课程表</h3>
+	                                    </div>
+	                                    <p>
+	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                    </p>
+	                                    <div class="spacer"></div>
+	                              </div>
+	                              
+                              </div>
+                              
+                              
+                              <div class="vs-news-content">
+	                             <div class="col-xs-3">
+	                                    <div class="profile-pic text-center">
+	                                        <img src="assets/img/team-2.jpg" alt="" class="img-circle">
+	                                    </div>
+	                             </div>
+	                             <div class="col-xs-9">
+	                                    <div class="profile-info">
+	                                        <h3>Vivian 何老师个人介绍</h3>
+	                                    </div>
+	                                    <p>
+	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                    </p>
+	                                    <div class="spacer"></div>
+	                              </div>
+                              </div>
+                              
+                               <div class="vs-news-content">
+	                             <div class="col-xs-3">
+	                                    <div class="profile-pic text-center">
+	                                        <img src="assets/img/team-1.jpg" alt="" class="img-circle">
+	                                    </div>
+	                             </div>
+	                             <div class="col-xs-9">
+	                                    <div class="profile-info">
+	                                        <h3>往届学员有话说</h3>
+	                                    </div>
+	                                    <p>
+	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                    </p>
+	                                    <div class="spacer"></div>
+	                              </div>
+                              </div>
+                              
+                              <div class="vs-news-content">
+	                             <div class="col-xs-3">
+	                                    <div class="profile-pic text-center">
+	                                        <img src="assets/img/team-4.jpg" alt="" class="img-circle">
+	                                    </div>
+	                             </div>
+	                             <div class="col-xs-9">
+	                                    <div class="profile-info">
+	                                        <h3>我要加入｜即刻在线报名</h3>
+	                                    </div>
+	                                    <p>
+	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                    </p>
+	                                    <div class="spacer"></div>
+	                              </div>
+                              </div>
+                         </div>
+            		</div>
+            	</div>
+            	
+            </div>
+           </div>
+         </section>
+    
 
     <!-- Contact
     ================================================== -->
@@ -135,9 +233,9 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                     <header>
-                        <h1>Contact Us</h1>
+                        <h1>联系我们</h1>
                         <div class="spacer"></div>
-                        <p>Lorem ipsum dolor sit amet, id iusto oportere mel. </p>
+                        <p>欢迎加入我们 ｜ Vivian Studio</p>
                     </header>
                 </div>
             </div>
@@ -167,40 +265,6 @@
             </div>
 
 
-            <form class="contact-form">
-                <div class="row">
-                    <div class="col-md-5 col-md-offset-1 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-4 col-xs-12">
-                                    <input type="text" class="form-control" name="name" value="" required="true" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-4 col-xs-12">
-                                    <input type="email" class="form-control" name="your-email" value="" required="true" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-4 col-xs-12">
-                                    <input type="text" class="form-control" name="your-subject" value="" required="true" placeholder="Subject">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-5 col-sm-12 col-xs-12">
-
-                            <textarea class="form-control" name="your-message" cols="40" rows="8" placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-11 col-sm-12 col-xs-12 text-right">
-                            <input type="submit" value="Submit" class="btn btn-success">
-                        </div>
-                    </div>
-                </div>
-            </form>
         </div>
     </section>
 
