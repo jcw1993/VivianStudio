@@ -5,5 +5,5 @@
 .classpath
 .loadpath
 */.project
-*/.settings/**
+.settings/**
 
