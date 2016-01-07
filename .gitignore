@@ -6,4 +6,3 @@
 .loadpath
 */.project
 .settings/**
-src/nju/swi/conf/AppConfig.java
