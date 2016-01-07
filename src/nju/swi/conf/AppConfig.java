@@ -23,13 +23,18 @@ import com.jfinal.plugin.ehcache.EhCachePlugin;
 
 public class AppConfig extends JFinalConfig {
 	
-	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/vivian_studio?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
-	private static final String userName = "devuser";
-	private static final String password = "qyff2011";
+//	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/vivian_studio?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
+//	private static final String userName = "devuser";
+//	private static final String password = "qyff2011";
+	
+	private static final String jdbcUrl = "jdbc:mysql://rds4xf83282v1od67t1n.mysql.rds.aliyuncs.com:3306/r4up03p34l621t69?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
+	private static final String userName = "r4up03p34l621t69";
+	private static final String password = "njuswi";
 	
 	public void configConstant(Constants me) {
 		me.setDevMode(true);
-		me.setUploadedFileSaveDirectory("/Users/jinchengwei/Desktop/vivian_studio_upload/");
+//		me.setUploadedFileSaveDirectory("/Users/jinchengwei/Desktop/vivian_studio_upload/");
+		me.setUploadedFileSaveDirectory("/upload");
 	}
 
 	public void configRoute(Routes me) {
