@@ -2,15 +2,16 @@ package nju.swi.bll.model;
 
 import java.util.Date;
 
-import nju.swi.dao.HomeworkDao;
+import nju.swi.dao.GradesDao;
 import nju.swi.util.DateUtil;
 
-public class Homework {
+public class Grades {
 	private int id;
 	private int levelId;
 	private String title;
 	private String url;
-	private Date uploadTime;
+	private Date createdTime;
+	
 	public int getId() {
 		return id;
 	}
@@ -35,32 +36,32 @@ public class Homework {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public Date getUploadTime() {
-		return uploadTime;
+	public Date getCreatedTime() {
+		return createdTime;
 	}
-	public void setUploadTime(Date uploadTime) {
-		this.uploadTime = uploadTime;
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
 	}
 	
-	public Homework() {}
+	public Grades() {}
 	
-	public Homework(HomeworkDao dao) {
+	public Grades(GradesDao dao) {
 		id = dao.getInt("id");
 		levelId = dao.getInt("level_id");
 		title = dao.getStr("title");
 		url = dao.getStr("url");
-		uploadTime = DateUtil.timestampToDate(dao.getTimestamp("upload_time"));
+		createdTime = DateUtil.timestampToDate(dao.getTimestamp("created_time"));
 	}
 	
-	public HomeworkDao toDao() {
-		HomeworkDao dao = new HomeworkDao();
+	public GradesDao toDao() {
+		GradesDao dao = new GradesDao();
 		if(id > 0) {
 			dao.set("id", id);
 		}
 		dao.set("level_id", levelId);
 		dao.set("title", title);
 		dao.set("url", url);
-		dao.set("upload_time", DateUtil.dateToTimestamp(uploadTime));
+		dao.set("created_time", DateUtil.dateToTimestamp(createdTime));
 		return dao;
 	}
 }

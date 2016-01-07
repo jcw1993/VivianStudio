@@ -29,7 +29,7 @@ public class HomeController extends BaseController {
 		String mail = getPara("mail");
 		String password = getPara("password");
 		
-		GenericResult<Student> studentResult = ManagerFactory.getStduentManager().search(mail, password);
+		GenericResult<Student> studentResult = ManagerFactory.getStudentManager().search(mail, password);
 		renderJson(studentResult);
 	}
 	

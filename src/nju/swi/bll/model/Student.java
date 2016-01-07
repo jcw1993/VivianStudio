@@ -7,10 +7,12 @@ import nju.swi.util.DateUtil;
 
 public class Student {
 	private int id;
+	private int levelId;
 	private String name;
 	private String mail;
 	private String password;
-	private Date birth;
+	private String qq;
+	private String sex;
 	private String phone;
 	private String address;
 	private String openId;
@@ -40,12 +42,6 @@ public class Student {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getBirth() {
-		return birth;
-	}
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
 	public String getPhone() {
 		return phone;
 	}
@@ -71,6 +67,24 @@ public class Student {
 		this.registerDate = registerDate;
 	}
 	
+	public int getLevelId() {
+		return levelId;
+	}
+	public void setLevelId(int levelId) {
+		this.levelId = levelId;
+	}
+	public String getQq() {
+		return qq;
+	}
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	public Student(){}
 	
 	public Student(StudentDao dao) {
@@ -78,10 +92,12 @@ public class Student {
 		name = dao.getStr("name");
 		mail = dao.getStr("mail");
 		password = dao.getStr("password");
-		birth = DateUtil.timestampToDate(dao.getTimestamp("birth"));
 		phone = dao.getStr("phone");
 		address = dao.getStr("address");
 		openId = dao.getStr("open_id");
+		levelId = dao.getInt("level_id");
+		sex = dao.getStr("sex");
+		qq = dao.getStr("qq");
 		registerDate = DateUtil.timestampToDate(dao.getTimestamp("register_date"));
 	}
 	
@@ -90,13 +106,15 @@ public class Student {
 		if(id > 0) {
 			dao.set("id", id);
 		}
+		dao.set("level_id", levelId);
 		dao.set("name", name);
+		dao.set("sex", sex);
 		dao.set("mail", mail);
 		dao.set("password", password);
-		dao.set("birth", DateUtil.dateToTimestamp(birth));
 		dao.set("phone", phone);
 		dao.set("address", address);
 		dao.set("opne_id", openId);
+		dao.set("qq", qq);
 		dao.set("register_date", registerDate);
 		return dao;
 	}

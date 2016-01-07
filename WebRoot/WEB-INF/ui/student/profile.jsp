@@ -29,27 +29,27 @@
                             <form class="form-horizontal form-border" id="form">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">姓名</label>
-                                    <label class="col-sm-6 control-label">金程炜</label>
+                                    <label class="col-sm-6 control-label">${student.name}</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">性别</label>
-                                    <label class="col-sm-6 control-label">男</label>
+                                    <label class="col-sm-6 control-label">${student.sex}</label>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">生日</label>
-                                    <label class="col-sm-6 control-label">1993-10-07</label>
+                                    <label class="col-sm-3 control-label">年纪</label>
+                                    <label class="col-sm-6 control-label">${student.levelId}</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">邮箱</label>
-                                    <label class="col-sm-6 control-label">982595878@qq.com</label>
+                                    <label class="col-sm-6 control-label">${student.mail}</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">手机</label>
-                                    <label class="col-sm-6 control-label">18251182525</label>
+                                    <label class="col-sm-6 control-label">${student.phone}</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">地址</label>
-                                    <label class="col-sm-6 control-label">中国</label>
+                                    <label class="col-sm-6 control-label">${student.address}</label>
                                 </div>
                                 <div class="form-group">
                                 <div class="col-sm-3"></div>
