@@ -11,7 +11,7 @@
     <section id="features">
         <div class="container">
             <div class="">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center" >
                     <header>
                         <p class="text-muted">中学英语培优教育 | 何老师工作室</p>
                         <div class="spacer"></div>
@@ -19,10 +19,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-3 text-center wow fadeInUp">
+                <div class="col-xs-3 text-center wow fadeInUp" onclick="location.href='schedule'" style="cursor: pointer;">
                     <div class="icon-wrapper">
                         <p class="icon-circle">
-                            <i class="icon icon-screen-smartphone"></i>
+                            <i class="icon icon-book-open"></i>
                         </p>
                     </div>
                     <h4>最新课程</h4>
@@ -30,7 +30,7 @@
                 <div class="col-xs-3 text-center wow fadeInUp">
                     <div class="icon-wrapper">
                         <p class="icon-circle">
-                            <i class="icon icon-graph"></i>
+                            <i class="icon icon-user-follow"></i>
                         </p>
                     </div>
                     <h4>在线报名</h4>
@@ -38,7 +38,7 @@
                 <div class="col-xs-3 text-center wow fadeInUp">
                     <div class="icon-wrapper">
                         <p class="icon-circle">
-                            <i class="icon fa fa-html5"></i>
+                            <i class="icon icon-bubbles"></i>
                         </p>
                     </div>
                     <h4>学生寄语</h4>
@@ -46,7 +46,7 @@
                 <div class="col-xs-3 text-center wow fadeInUp">
                     <div class="icon-wrapper">
                         <p class="icon-circle">
-                            <i class="icon fa fa-google"></i>
+                            <i class="icon icon-login"></i>
                         </p>
                     </div>
                     <h4>学员登录</h4>

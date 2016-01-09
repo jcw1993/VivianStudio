@@ -23,7 +23,7 @@
                             <div class="vs-news-content">
 	                             <div class="col-xs-3">
 	                                    <div class="profile-pic text-center">
-	                                        <img src="assets/img/team-3.jpg" alt="" class="img-circle">
+	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsClassTwo.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
 	                             <div class="col-xs-9">
@@ -59,7 +59,7 @@
                                <div class="vs-news-content">
 	                             <div class="col-xs-3">
 	                                    <div class="profile-pic text-center">
-	                                        <img src="assets/img/team-1.jpg" alt="" class="img-circle">
+	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsShare.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
 	                             <div class="col-xs-9">
@@ -76,7 +76,7 @@
                               <div class="vs-news-content">
 	                             <div class="col-xs-3">
 	                                    <div class="profile-pic text-center">
-	                                        <img src="assets/img/team-4.jpg" alt="" class="img-circle">
+	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsAdd.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
 	                             <div class="col-xs-9">

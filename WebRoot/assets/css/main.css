@@ -665,8 +665,8 @@ fieldset[disabled] .btn-warning.active {
   /* Modified by Matthew */
   .nav>li>a {
   	float:left !important;
-  	padding: 10px 5px;
-  	font-size: 0.713em !important;
+  	padding: 8px 5px;
+  	font-size: 0.633em !important;
   }
   
   .col-xs-3
