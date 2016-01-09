@@ -20,9 +20,7 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">详情</h3>
                             <div class="actions pull-right">
-                                <i class="fa fa-expand"></i>
-                                <i class="fa fa-chevron-down"></i>
-                                <i class="fa fa-times"></i>
+                                <button id="editBtn" type="button" class="btn btn-success btn-sm">编辑</button>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -36,8 +34,8 @@
                                     <label class="col-sm-6 control-label">${student.sex}</label>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">年纪</label>
-                                    <label class="col-sm-6 control-label">${student.levelId}</label>
+                                    <label class="col-sm-3 control-label">年级</label>
+                                    <label class="col-sm-6 control-label">levelMap["${student.levelId}"]</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">邮箱</label>
@@ -46,6 +44,10 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">手机</label>
                                     <label class="col-sm-6 control-label">${student.phone}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">QQ</label>
+                                    <label class="col-sm-6 control-label">${student.qq}</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">地址</label>
@@ -69,6 +71,13 @@
 <script type="text/javascript">
 $(function() {
 	$("#leftNav li:nth-child(4)").addClass("active");
+    
+    var level = levelMap[${student.levelId}];
+    $("#levelLbl").text(level);
+
+    $("#editBtn").click(function(e) {
+        window.location = "profileEdit";
+    });
 });
 </script>
 

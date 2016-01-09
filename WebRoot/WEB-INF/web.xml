@@ -17,8 +17,21 @@
       <param-value>nju.swi.conf.AppConfig</param-value>
     </init-param>
   </filter>
+  
+  <!-- auth filter -->
+  <filter>
+    <filter-name>auth</filter-name>
+    <filter-class>nju.swi.auth.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>auth</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   <filter-mapping>
     <filter-name>jfinal</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+
 </web-app>

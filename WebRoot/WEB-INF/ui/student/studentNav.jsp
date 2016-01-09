@@ -67,6 +67,11 @@
                     <i class="fa  fa-fw fa-user"></i> 个人信息
                 </a>
             </li>
+            <li>
+                <a href="notificationList" title="系统通知">
+                    <i class="fa  fa-fw fa-comment"></i> 系统通知
+                </a>
+            </li>
         </ul>
     </nav>
 </aside>

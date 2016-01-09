@@ -80,7 +80,7 @@
                 },
                 success:function(r) {
                     if(r.code == 0) {
-                        window.location = "student/grades";    
+                        window.location = r.data;    
                     }else {
                         showMessage("登录失败", "登录失败，请重试!");
                     }
