@@ -1,36 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<jsp:include page="header.jsp" flush="true"/>
-
-<body>
-
-	<jsp:include page="navi.jsp" flush="true"/>
-
-	<!-- Schedule Section
-    ================================================== -->
-    <section id="schedule">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsSchedule.jpg">
-                </div>
-            </div>
-        </div>
-    </section>
+<html>
 
 
-
-     <!-- Features Section
+    <!-- Features Section
     ================================================== -->
     <section id="features">
         <div class="container">
             <div class="">
                 <div class="col-lg-12 text-center">
                     <header>
-                        <p class="text-muted">何老师工作室 | Vivian Studio | 中学英语培优教育</p>
+                        <p class="text-muted">中学英语培优教育 | 何老师工作室</p>
                         <div class="spacer"></div>
                     </header>
                 </div>
@@ -73,18 +56,6 @@
             
         </div>
     </section>
-
-	<jsp:include page="footer.jsp" flush="true"/>
-
-
-<script type="text/javascript">
-    $('#myCarousel').carousel()
-</script>
-
-</body>
-
+    
+	
 </html>
-    
-
-
-    

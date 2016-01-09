@@ -700,6 +700,15 @@ fieldset[disabled] .btn-warning.active {
     margin: 15px auto;
     background: #337ab7;
 }
+
+
+/*   .contact-info a
+  {
+  color: #fff;
+  font-style: italic;
+  text-decoration : underline;
+  } */
+
 }
 @media (max-width: 767px) {
   .navbar-wrapper {
