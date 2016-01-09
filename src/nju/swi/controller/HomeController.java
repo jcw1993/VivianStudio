@@ -27,6 +27,11 @@ public class HomeController extends BaseController {
 		renderJsp("schedule");
 	}
 	
+	public void contact()
+	{
+		renderJsp("contact");
+	}
+	
 	@Before(POST.class)
 	public void login() {
 		String mail = getPara("mail");
