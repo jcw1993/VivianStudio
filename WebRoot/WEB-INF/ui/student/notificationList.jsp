@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <jsp:include page="studentHeader.jsp" flush="true"/>
@@ -31,6 +32,7 @@
                                 <thead>
                                     <tr>
                                         <th>标题</th>
+                                        <th>发布时间</th>
                                         <th>点击</th>
                                     </tr>
                                 </thead>
@@ -39,6 +41,9 @@
                                 <c:forEach items="${notifications}" var="notification">
                                     <tr>
                                         <td>${notification.title}</td>
+                                        <td>
+                                        	<p><fmt:formatDate value="${notification.createdTime}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                                        </td>
                                         <td>
                                         <button type="button" class="detailBtn btn btn-success btn-sm btn-trans" notificationId="${notification.id}">查看详情</button>
                                         </td>
@@ -62,7 +67,7 @@ $(function() {
 
 	$(".detailBtn").click(function(e) {
 		var notificationId = $(this).attr("notificationId");
-		window.location = "notificationDetial?notificationId=" + notificationId;
+		window.location = "notificationDetail?notificationId=" + notificationId;
 	});
 });
 </script>

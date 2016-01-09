@@ -22,7 +22,7 @@
 		                    <h3 class="panel-title">发布成绩</h3>
 		                </div>
 		                <div class="panel-body">
-                            <form action='createNotification' class='form-horizontal' role='form' method='post'>
+                            <form id="editForm" action='createNotification' class='form-horizontal' role='form' method='post'>
                                	<div class='form-group'>
 	                               	<label class="col-sm-3 control-label" for="homework">标题</label>
                                	    <div class='col-sm-6'>
@@ -32,7 +32,7 @@
            	                    <div class="form-group">
                                     <label class="col-sm-3 control-label" for="homework">年级</label>
                                     <div class="col-sm-6">
-										<select class="form-control input-default">
+										<select name="levelId" class="form-control input-default">
 											<option value="1">初一</option>
 											<option value="2">初二</option>
 											<option value="3">初三</option>
@@ -40,11 +40,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="homework">文件</label>
+                                    <label class="col-sm-3 control-label" for="homework">文件地址</label>
                                     <div class="col-sm-6">
-										<!-- <input type="file" id="homework" class="form-control" /> -->
-										<span class="file-input btn btn-block btn-primary btn-file">选择文件<input type="file" multiple="">
-							            </span>
+										<input id="url" class="form-control" type="text" name="url" placeholder="成绩文件url"/>
                                     </div>
                                 </div>
                                	<div class="form-group">
@@ -61,33 +59,50 @@
 		</section>
     </section>
     <!--main content end-->
-    <jsp include="../modal.jsp" flush="true" />
+    <jsp:include page="../modal.jsp" flush="true" />
 </section>
 
 <script type="text/javascript">
 $(function() {
 	$("#createBtn").click(function(e) {
-		var title = $("#title").val();
-		var content = $("#content").val();
+		create();
+	});
+});
 
+function create() {
+	var data = $("#editForm").serialize();
+	if(validate()) {
 		$.ajax({
 			url: "createGrades",
-			method: "post",
-			data: {
-				title: title,
-				content: content
-			},
-			success: function(r) {
-				console.log(r);
+			type: "post",
+			data: data,
+			success:function(r) {
 				if(r.code == 0) {
 					window.location = "gradesManage";
 				}else {
-					showMessgae("发布失败", "发布通知失败，请稍后重试！");
+					showMessage("发布失败", "发布失败");
 				}
 			}
 		});
-	});
-});
+	}
+}
+
+function validate() {
+	var title = $("#title").val();
+	var url = $("#url").val();
+	
+	if(!title || title.trim() == "") {
+		showMessage("请输入标题", "请输入标题");
+		return false;
+	}
+
+	if(!url || url.trim() == "") {
+		showMessage("请输入文件url", "请输入文件url");
+		return false;
+	}
+
+	return true;
+}
 </script>
 </body>
 

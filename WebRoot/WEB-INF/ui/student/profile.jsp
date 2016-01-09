@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">年级</label>
-                                    <label class="col-sm-6 control-label">levelMap["${student.levelId}"]</label>
+                                    <label id="levelLbl" class="col-sm-6 control-label">levelMap["${student.levelId}"]</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">邮箱</label>
@@ -71,7 +71,7 @@
 <script type="text/javascript">
 $(function() {
 	$("#leftNav li:nth-child(4)").addClass("active");
-    
+
     var level = levelMap[${student.levelId}];
     $("#levelLbl").text(level);
 

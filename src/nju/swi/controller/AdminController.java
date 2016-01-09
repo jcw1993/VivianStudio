@@ -64,12 +64,17 @@ public class AdminController extends BaseController {
 	
 	@Before(POST.class)
 	public void createGrades() {
-		UploadFile uploadFile = getFile();
-		File file = null;
+		String title = getPara("title");
 		int levelId = getParaToInt("levelId");
-		if(null != uploadFile && null != (file = uploadFile.getFile())) {
-			
-		}
+		String url = getPara("url");
+		
+		Grades grades = new Grades();
+		grades.setTitle(title);
+		grades.setLevelId(levelId);
+		grades.setUrl(url);
+		
+		GenericResult<Integer> createResult = ManagerFactory.getGradesManager().create(grades);
+		renderJson(createResult);
 	}
 	
 	@Before(POST.class)
