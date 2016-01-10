@@ -20,7 +20,7 @@
                     <!--logo start-->
                     <div class="brand">
                         <a href="home" class="logo">
-                            <i class="icon-layers"></i>
+                            <i class="icon-diamond"></i>
                             <span>Vivian</span>Studio</a>
                     </div>
                     <!--logo end-->
@@ -32,11 +32,11 @@
                         </li>
                         <li><a href="schedule">课程安排</a>
                         </li>
-                        <li><a href="#show">风采展示</a>
+                        <li><a href="show">风采展示</a>
                         </li>
                         <li><a href="contact">联系我们</a>
                         </li>
-                        <li class="pull-right"><a href="#contact">登录</a>
+                        <li class="pull-right"><a href="loginPage">登录</a>
                         </li>
                     </ul>
 <!--                 </div>

@@ -13,7 +13,7 @@
                 <header>
                     <div class="brand">
                         <a href="index.html" class="logo">
-                            <i class="icon-layers"></i>
+                            <i class="icon-diamond"></i>
                             <span>Vivian</span>Studio</a>
                     </div>
                 </header>

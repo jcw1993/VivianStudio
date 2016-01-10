@@ -23,7 +23,7 @@
                             <div class="vs-news-content">
 	                             <div class="col-xs-3">
 	                                    <div class="profile-pic text-center">
-	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsClassTwo.png" alt="" class="img-circle">
+	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsBook.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
 	                             <div class="col-xs-9">

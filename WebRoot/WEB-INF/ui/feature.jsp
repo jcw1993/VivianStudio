@@ -43,7 +43,7 @@
                     </div>
                     <h4>学生寄语</h4>
                 </div>
-                <div class="col-xs-3 text-center wow fadeInUp">
+                <div class="col-xs-3 text-center wow fadeInUp" onclick="location.href='loginPage'" style="cursor: pointer;">
                     <div class="icon-wrapper">
                         <p class="icon-circle">
                             <i class="icon icon-login"></i>

@@ -6,42 +6,8 @@
 <jsp:include page="header.jsp" flush="true"/>
 
 <body>
-<header class="navbar-wrapper">
-        <div class="navbar navbar-default navbar-static-top home-navbar" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button> -->
-                    <!--logo start-->
-                    <div class="brand">
-                        <a href="home" class="logo">
-                            <i class="icon-layers"></i>
-                            <span>Vivian</span>Studio</a>
-                    </div>
-                    <!--logo end-->
-                    
-                </div>
-<!--                 <div class="navbar-collapse collapse">
- -->                    <ul class="nav navbar-nav pull-right" id="">
-                        <li><a href="home">首页</a>
-                        </li>
-                        <li><a href="schedule">课程安排</a>
-                        </li>
-                        <li><a href="#show">风采展示</a>
-                        </li>
-                        <li><a href="contact">联系我们</a>
-                        </li>
-                        <li class="pull-right"><a href="#contact">登录</a>
-                        </li>
-                    </ul>
-<!--                 </div>
- -->            </div>
-        </div>
-    </header>
+    <jsp:include page="navi.jsp" flush="true"/>
+
 
 	<!-- Schedule Section
     ================================================== -->

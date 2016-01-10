@@ -27,6 +27,10 @@ public class HomeController extends BaseController {
 		renderJsp("register");
 	}
 	
+	public void show() {
+		renderJsp("show");
+	}
+	
 	@Before(POST.class)
 	public void register() {
 		int levelId = getParaToInt("levelId");
