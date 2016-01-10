@@ -42,7 +42,7 @@
                                 <div class="col-md-12">
                                     <a id="loginBtn" href="#" class="btn btn-primary btn-block">登录</a>
                                     <hr />
-                                    <a href="pages-sign-up.html" class="btn btn-default btn-block">立即注册</a>
+                                    <a href="registerPage" class="btn btn-default btn-block">立即注册</a>
                                 </div>
                             </div>
                         </form>

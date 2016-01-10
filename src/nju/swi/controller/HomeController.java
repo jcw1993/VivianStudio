@@ -8,6 +8,7 @@ import nju.swi.bll.model.Student;
 import nju.swi.common.GenericResult;
 import nju.swi.common.NoneDataResult;
 import nju.swi.common.ResultCode;
+import nju.swi.conf.AppConfig;
 
 import com.jfinal.aop.Before;
 import com.jfinal.ext.interceptor.POST;
@@ -20,6 +21,43 @@ public class HomeController extends BaseController {
 	
 	public void loginPage() {
 		renderJsp("login");
+	}
+	
+	public void registerPage() {
+		renderJsp("register");
+	}
+	
+	@Before(POST.class)
+	public void register() {
+		int levelId = getParaToInt("levelId");
+		String invitationCode = getPara("invitationCode");
+		if(levelId < 1 || levelId > 3) {
+			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
+			return;
+		}
+		if(!invitationCode.equals(AppConfig.INVITATION_CODE[levelId - 1])) {
+			renderJson(new NoneDataResult(ResultCode.E_INVALID_INVITATION));
+			return;
+		}
+		
+		String name = getPara("name");
+		String sex = getPara("sex");
+		String password = getPara("password");
+		String qq = getPara("qq");
+		String phone = getPara("phone");
+		String mail = getPara("mail");
+		String address = getPara("address");
+		Student student = new Student();
+		student.setName(name);
+		student.setLevelId(levelId);
+		student.setQq(qq);
+		student.setPhone(phone);
+		student.setMail(mail);
+		student.setAddress(address);
+		student.setSex(sex);
+		student.setPassword(password);
+		GenericResult<Integer> createResult = ManagerFactory.getStudentManager().create(student);
+		renderJson(createResult);
 	}
 	
 	public void schedule()
