@@ -74,8 +74,6 @@ public class HomeController extends BaseController {
 	public void login() {
 		String mail = getPara("mail");
 		String password = getPara("password");
-		System.out.println("mail:" + mail);
-		System.out.println("password:" + password);
 		GenericResult<String> result = new GenericResult<String>();
 		if(mail.equals("admin") && password.equals("admin")) {
 			AdminIdentity identity = new AdminIdentity();
