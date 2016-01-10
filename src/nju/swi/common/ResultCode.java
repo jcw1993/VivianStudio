@@ -22,5 +22,6 @@ public class ResultCode {
 	
 	public static final int E_PASSWORD_ERROR = 0x00000041;
 	
+	public static final int E_INVALID_INVITATION = 0x00000042;
 	
 }

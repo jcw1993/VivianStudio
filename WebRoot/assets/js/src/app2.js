@@ -434,3 +434,10 @@ $(window).resize(function() {
     app.chartJs();
 
 });
+
+
+var levelMap = {
+    "1" : "初一",
+    "2" : "初二",
+    "3" : "初三"
+}

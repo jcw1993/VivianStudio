@@ -113,7 +113,7 @@ public class Student {
 		dao.set("password", password);
 		dao.set("phone", phone);
 		dao.set("address", address);
-		dao.set("opne_id", openId);
+		dao.set("open_id", openId);
 		dao.set("qq", qq);
 		dao.set("register_date", registerDate);
 		return dao;

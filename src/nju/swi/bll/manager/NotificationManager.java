@@ -46,6 +46,22 @@ public class NotificationManager {
 		return result;
 	}
 	
+	public GenericResult<Notification> getById(int id) {
+		GenericResult<Notification> result = new GenericResult<Notification>();
+		GenericResult<List<Notification>> allResult = getAll();
+		if(allResult.getCode() == ResultCode.OK) {
+			for(Notification notification : allResult.getData()) {
+				if(notification.getId() == id) {
+					result.setData(notification);
+					break;
+				}
+			}
+		}else {
+			result.setCode(allResult.getCode());
+		}
+		return result;
+	}
+	
 	public GenericResult<Integer> create(Notification notification) {
 		GenericResult<Integer> result = new GenericResult<Integer>();
 		try {
