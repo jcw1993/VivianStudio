@@ -20,18 +20,18 @@
                              
                          </div>
                          <div class="panel-body profile-wrapper">
-                            <div class="vs-news-content">
+                            <div class="vs-news-content" onclick="location.href='schedule'" style="cursor: pointer;">
 	                             <div class="col-xs-3">
 	                                    <div class="profile-pic text-center">
-	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsBook.png" alt="" class="img-circle">
+	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsLesson.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
 	                             <div class="col-xs-9">
 	                                    <div class="profile-info">
-	                                        <h3>2016 最新课程表</h3>
+	                                        <h3>开课啦！｜ 2016 最新课程表</h3>
 	                                    </div>
 	                                    <p>
-	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                  		2016 精品课程已经发布，启发式培优课堂，英语学习不只是一种技能，更是一种乐趣。
 	                                    </p>
 	                                    <div class="spacer"></div>
 	                              </div>
@@ -50,7 +50,7 @@
 	                                        <h3>Vivian 何老师个人介绍</h3>
 	                                    </div>
 	                                    <p>
-	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                  		资深中学英语教师，重视课堂启发与互动，重点知识讲解结合实践表达演练，深受学生喜爱。
 	                                    </p>
 	                                    <div class="spacer"></div>
 	                              </div>
@@ -67,13 +67,13 @@
 	                                        <h3>往届学员有话说</h3>
 	                                    </div>
 	                                    <p>
-	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                  		“ 不夸张地说，何老师上课简直是我初中时课堂上的享受，当年老师的教学成果受用至今 ...”
 	                                    </p>
 	                                    <div class="spacer"></div>
 	                              </div>
                               </div>
                               
-                              <div class="vs-news-content">
+                              <div class="vs-news-content" onclick="location.href='http://f.sojump.cn/jq/6993589.aspx'" style="cursor: pointer;">
 	                             <div class="col-xs-3">
 	                                    <div class="profile-pic text-center">
 	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsAdd.png" alt="" class="img-circle">
@@ -84,7 +84,7 @@
 	                                        <h3>我要加入｜即刻在线报名</h3>
 	                                    </div>
 	                                    <p>
-	                                  		Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+	                                  		从这里出发，一起探索英语学习的乐趣，你准备好么了？点击进入 Vivian Studio 2016 在线报名系统。
 	                                    </p>
 	                                    <div class="spacer"></div>
 	                              </div>

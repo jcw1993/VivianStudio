@@ -22,13 +22,13 @@
                         </ol>
                         <div class="carousel-inner">
                           <div class="item active">
-                            <img src="http://caibaojian.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
+                            <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselOne.jpg" alt="">
                           </div>
                           <div class="item">
-                            <img src="http://caibaojian.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg" alt="">
+                            <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselTwo.jpg" alt="">
                           </div>
                           <div class="item">
-                            <img src="http://caibaojian.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg" alt="">
+                            <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselThree.png" alt="">
                           </div>
                         </div>
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
