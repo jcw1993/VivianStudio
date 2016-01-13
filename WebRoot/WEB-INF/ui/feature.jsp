@@ -35,7 +35,7 @@
                     </div>
                     <h4>在线报名</h4>
                 </div>
-                <div class="col-xs-3 text-center wow fadeInUp">
+                <div class="col-xs-3 text-center wow fadeInUp" onclick="location.href='students'" style="cursor: pointer;">
                     <div class="icon-wrapper">
                         <p class="icon-circle">
                             <i class="icon icon-bubbles"></i>

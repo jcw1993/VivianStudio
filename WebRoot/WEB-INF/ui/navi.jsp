@@ -32,7 +32,7 @@
                         </li>
                         <li><a href="schedule">课程安排</a>
                         </li>
-                        <li><a href="show">风采展示</a>
+                        <li><a href="show">教师介绍</a>
                         </li>
                         <li><a href="contact">联系我们</a>
                         </li>

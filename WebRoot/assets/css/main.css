@@ -841,13 +841,13 @@ fieldset[disabled] .btn-warning.active {
 /*   padding: 5px 0;
  */  border: solid thin #788093;
   border-radius: 500px;
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
   text-align: center;
 }
 #features .icon-circle .icon {
   font-size: 2.5em;
-  padding: 20px;
+  padding: 15px;
   display: inline-block;
 }
 #pricing {
@@ -1258,6 +1258,20 @@ fieldset[disabled] .btn-warning.active {
   box-shadow: none;
   border-color: #27b6af;
 }
+@media (min-width: 392px) {
+.vs-news-content img
+{
+	max-height : 70px;
+}
+}
+
+@media (min-width: 768px) {
+.vs-news-content img
+{
+	display : none;
+}
+}
+
 @media (max-width: 992px) {
   #contact .contact-form .form-group {
     width: 100%;
@@ -1413,9 +1427,15 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .timeline-post h4 {
-margin-bottom: 10px;
+margin-bottom: 20px;
 margin-top: 10px;
 
+}
+
+.timeline-post p
+{
+	margin: 5px 5px 10px 5px;
+	    font-size: 0.925em;
 }
 
 .vs-news-content p

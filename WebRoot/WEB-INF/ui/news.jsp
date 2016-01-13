@@ -21,12 +21,12 @@
                          </div>
                          <div class="panel-body profile-wrapper">
                             <div class="vs-news-content" onclick="location.href='schedule'" style="cursor: pointer;">
-	                             <div class="col-xs-3">
+	                             <div class="col-xs-3 col-sm-2">
 	                                    <div class="profile-pic text-center">
 	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsLesson.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
-	                             <div class="col-xs-9">
+	                             <div class="col-xs-9 col-sm-10">
 	                                    <div class="profile-info">
 	                                        <h3>开课啦！｜ 2016 最新课程表</h3>
 	                                    </div>
@@ -39,13 +39,13 @@
                               </div>
                               
                               
-                              <div class="vs-news-content">
-	                             <div class="col-xs-3">
+                              <div class="vs-news-content" onclick="location.href='show'" style="cursor: pointer;">
+	                             <div class="col-xs-3 col-sm-2">
 	                                    <div class="profile-pic text-center">
 	                                        <img src="assets/img/team-2.jpg" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
-	                             <div class="col-xs-9">
+	                             <div class="col-xs-9 col-sm-10">
 	                                    <div class="profile-info">
 	                                        <h3>Vivian 何老师个人介绍</h3>
 	                                    </div>
@@ -56,13 +56,13 @@
 	                              </div>
                               </div>
                               
-                               <div class="vs-news-content">
-	                             <div class="col-xs-3">
+                               <div class="vs-news-content" onclick="location.href='students'" style="cursor: pointer;">
+	                             <div class="col-xs-3 col-sm-2">
 	                                    <div class="profile-pic text-center">
 	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsShare.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
-	                             <div class="col-xs-9">
+	                             <div class="col-xs-9 col-sm-10">
 	                                    <div class="profile-info">
 	                                        <h3>往届学员有话说</h3>
 	                                    </div>
@@ -74,12 +74,12 @@
                               </div>
                               
                               <div class="vs-news-content" onclick="location.href='http://f.sojump.cn/jq/6993589.aspx'" style="cursor: pointer;">
-	                             <div class="col-xs-3">
+	                             <div class="col-xs-3 col-sm-2">
 	                                    <div class="profile-pic text-center">
 	                                        <img src="http://7xpxna.com1.z0.glb.clouddn.com/vsAdd.png" alt="" class="img-circle">
 	                                    </div>
 	                             </div>
-	                             <div class="col-xs-9">
+	                             <div class="col-xs-9 col-sm-10">
 	                                    <div class="profile-info">
 	                                        <h3>我要加入｜即刻在线报名</h3>
 	                                    </div>

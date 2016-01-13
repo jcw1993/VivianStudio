@@ -23,7 +23,7 @@ public class AuthFilter implements Filter {
 	
 	private static Logger logger = LoggerFactory.getLogger(AuthFilter.class);
 	
-	private static String[] unLimitedUrls = { "/home", "/schedule", "/contact", "/news", "/introduction", "/loginPage", "/login", "/show", "/register", "/registerPage", "/logout", "/assets\\/.*"};
+	private static String[] unLimitedUrls = { "/home", "/schedule", "/contact", "/news", "/introduction", "/loginPage", "/login", "/show", "/students", "/register", "/registerPage", "/logout", "/assets\\/.*"};
 
 	private static ArrayList<Pattern> unLimitedPatterns = new ArrayList<Pattern>();
 

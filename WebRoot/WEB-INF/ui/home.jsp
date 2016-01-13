@@ -14,15 +14,18 @@
             
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="myCarousel" class="carousel slide">
+                    <div id="myCarousel" >
                         <ol class="carousel-indicators">
                           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                           <li data-target="#myCarousel" data-slide-to="1" class=""></li>
                           <li data-target="#myCarousel" data-slide-to="2" class=""></li>
                         </ol>
                         <div class="carousel-inner">
-                          <div class="item active">
+                          <div class="item active" class="carousel slide" onclick="location.href='schedule'" style="cursor: pointer;">
                             <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselOne.jpg" alt="">
+                           <!--  <div class="carousel-caption">
+							    <h3>开课啦！｜ 2016 最新课程表</h3>
+							  </div> -->
                           </div>
                           <div class="item">
                             <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselTwo.jpg" alt="">
