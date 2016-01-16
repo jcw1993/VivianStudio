@@ -28,13 +28,13 @@
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                    <input type="email" class="form-control" id="email" placeholder="请输入您的账户">
                                     <i class="fa fa-user"></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input type="password" class="form-control" id="password" placeholder="请输入您的密码">
                                     <i class="fa fa-lock"></i>
                                 </div>
                             </div>

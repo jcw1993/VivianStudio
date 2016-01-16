@@ -316,7 +316,7 @@ canvas {
   color: #373737;
 }
 #header .navbar-right{
-  margin-right: 80px;
+  margin-right: 0px;
 }
 #header .profile ul > li h5,
 #header .profile ul > li p {

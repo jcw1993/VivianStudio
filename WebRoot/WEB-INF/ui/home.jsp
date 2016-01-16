@@ -14,6 +14,18 @@
             
             <div class="row">
                 <div class="col-lg-12">
+                	<!-- <div id="owl-demo" class="owl-carousel owl-theme">
+					  <div class="item active" class="carousel slide" onclick="location.href='schedule'" style="cursor: pointer;">
+                            <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselOne.jpg" alt="">
+                          </div>
+                          <div class="item">
+                            <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselTwo.jpg" alt="">
+                          </div>
+                          <div class="item">
+                            <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselThree.png" alt="">
+                          </div>
+					</div> -->
+                
                     <div id="myCarousel" >
                         <ol class="carousel-indicators">
                           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -23,9 +35,6 @@
                         <div class="carousel-inner">
                           <div class="item active" class="carousel slide" onclick="location.href='schedule'" style="cursor: pointer;">
                             <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselOne.jpg" alt="">
-                           <!--  <div class="carousel-caption">
-							    <h3>开课啦！｜ 2016 最新课程表</h3>
-							  </div> -->
                           </div>
                           <div class="item">
                             <img src="http://7xpxna.com1.z0.glb.clouddn.com/vscarouselTwo.jpg" alt="">
@@ -40,7 +49,7 @@
                         <a class="right carousel-control" href="#myCarousel" data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right"></span>
                         </a>
-                      </div>
+                      </div> 
                 </div>
             </div>
 
@@ -53,8 +62,32 @@
     <jsp:include page="footer.jsp" flush="true"/>
 
 <script type="text/javascript">
-    $('#myCarousel').carousel()
-</script>
+     
+     
+/* 	$("#myCarousel").swiperight(function() {  
+	  $(this).carousel('prev');  
+		});  
+ 	$("#myCarousel").swipeleft(function() {  
+    $(this).carousel('next');  
+});  */
+ 
+  $("#owl-demo").owlCarousel({
+	 
+     navigation : true, // Show next and prev buttons
+     slideSpeed : 300,
+     paginationSpeed : 400,
+     singleItem:true
+
+     // "singleItem:true" is a shortcut for:
+     // items : 1, 
+     // itemsDesktop : false,
+     // itemsDesktopSmall : false,
+     // itemsTablet: false,
+     // itemsMobile : false
+
+ });
+  
+ </script>
 
 </body>
 

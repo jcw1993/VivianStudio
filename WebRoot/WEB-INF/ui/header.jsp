@@ -23,11 +23,15 @@
     <link rel="stylesheet" href="<c:url value="/assets/css/animate.css" />">
     <!-- Carousel -->
     <link rel="stylesheet" href="<c:url value="/assets/js/plugins/carousel/owl.carousel.css" />">
+    <link rel="stylesheet" href="<c:url value="/assets/js/plugins/carousel/owl.theme.css" />">
     <link rel="stylesheet" href="<c:url value="/assets/css/main.css" />">
+    
+    
     <!-- Feature detection -->
     <script src="<c:url value="/assets/js/vendor/modernizr-2.6.2.min.js" />"></script>
 
     <script src="<c:url value="/assets/js/vendor/jquery-1.11.1.min.js" />"></script>
+    <script src="<c:url value="/assets/js/vendor/jquery.mobile.custom.min.js" />"></script>
     <script src="<c:url value="/assets/js/plugins/bootstrap/js/bootstrap.min.js" />"></script>
     <script src="<c:url value="/assets/js/plugins/bootstrap/js/bootstrap-carousel.js" />"></script>
     <script src="<c:url value="/assets/js/plugins/nav/jquery.nav.js" />"></script>

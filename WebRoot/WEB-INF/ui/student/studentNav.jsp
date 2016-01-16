@@ -6,8 +6,8 @@
 <header id="header">
     <!--logo start-->
     <div class="brand">
-        <a href="index.html" class="logo">
-            <i class="icon-layers"></i>
+        <a href="grades" class="logo">
+            <i class="icon-diamond"></i>
             <span>VIVIAN</span>STUDIO</a>
     </div>
     <!--logo end-->
@@ -20,25 +20,10 @@
     </ul>
 
 	<ul class="nav navbar-nav navbar-right">
-	    <li class="dropdown profile hidden-xs">
-	        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-	            <span class="meta">
-	            <span class="text">金程炜</span>
-	            <span class="caret"></span>
-	            </span>
-	        </a>
-	        <ul class="dropdown-menu animated fadeInRight" role="menu">
-	            <li>
-	                <a href="javascript:void(0);">
-	                    <span class="icon"><i class="fa fa-user"></i>
-	                    </span>个人信息</a>
-	            </li>
-	            <li>
-	                <a href="javascript:logout();">
-	                    <span class="icon"><i class="fa fa-sign-out"></i>
-	                    </span>注销</a>
-	            </li>
-	        </ul>
+	    <li>
+	     <button class="sidebar-toggle" id="toggle-right">
+                <i class="fa fa-sign-out"></i>
+          </button> 
 	    </li>
 	</ul>
 </header>
