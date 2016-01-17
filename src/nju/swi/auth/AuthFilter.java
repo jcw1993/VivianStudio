@@ -2,6 +2,7 @@ package nju.swi.auth;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,7 +24,7 @@ public class AuthFilter implements Filter {
 	
 	private static Logger logger = LoggerFactory.getLogger(AuthFilter.class);
 	
-	private static String[] unLimitedUrls = { "/home", "/schedule", "/contact", "/news", "/introduction", "/loginPage", "/login", "/show", "/students", "/register", "/registerPage", "/logout", "/assets\\/.*"};
+	private static String[] unLimitedUrls = { "/", "/home", "/schedule", "/contact", "/news", "/introduction", "/loginPage", "/login", "/show", "/students", "/register", "/registerPage", "/logout", "/assets\\/.*"};
 
 	private static ArrayList<Pattern> unLimitedPatterns = new ArrayList<Pattern>();
 
@@ -50,25 +51,25 @@ public class AuthFilter implements Filter {
 		String servletPath = httpServletRequest.getServletPath();
 		String baseUrl = httpServletRequest.getContextPath();
 		
-		boolean authencated = false;
-		authencated |= urlMathPatterns(servletPath, unLimitedPatterns);
-		
-		
-		if(!authencated) {
-			Identity identity = AuthService.getInstance().getIdentity(httpServletRequest);
-			if(null == identity) {
-				httpServletResponse.sendRedirect(baseUrl + "/home");
+		Identity identity = AuthService.getInstance().getIdentity(httpServletRequest);
+		if(null == identity) {
+			boolean authencated = false;
+			authencated |= urlMathPatterns(servletPath, unLimitedPatterns);
+			if(!authencated) {
+				if(isUrlLogin(servletPath)) {
+					httpServletResponse.sendRedirect(baseUrl + "/loginPage");
+				}else {
+					httpServletResponse.sendRedirect(baseUrl + "/home");
+				}
 				return;
 			}
+		}else if(identity instanceof StudentIdentity) {
 			
-			if(identity instanceof StudentIdentity) {
-				
-			}else if(identity instanceof AdminIdentity) {
+		}else if(identity instanceof AdminIdentity) {
 
-			}else {
-				httpServletResponse.sendRedirect(baseUrl + "/home");
-				return;
-			}
+		}else {
+			httpServletResponse.sendRedirect(baseUrl + "/home");
+			return;
 		}
 		
 		chain.doFilter(request, response);
@@ -82,10 +83,24 @@ public class AuthFilter implements Filter {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
+
+	private static boolean isUrlLogin(String url) {
+		String[] urlLoginStrs = new String[] {"/student\\/.*", "/admin\\/.*"};
+		List<Pattern> urlLoginPatterns = new ArrayList<Pattern>();
+		for (String unLimitedUrl : urlLoginStrs) {
+			urlLoginPatterns.add(Pattern.compile(unLimitedUrl));
+		}
+		for(Pattern pattern : urlLoginPatterns) {
+			Matcher matcher = pattern.matcher(url);
+			if(matcher.matches()) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {

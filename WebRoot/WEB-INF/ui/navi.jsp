@@ -36,6 +36,8 @@
                         </li>
                         <li><a href="contact">联系我们</a>
                         </li>
+                        <li><a href="notificationList">系统通知</a>
+                        </li>
                         <li class="pull-right"><a href="loginPage">登录</a>
                         </li>
                     </ul>

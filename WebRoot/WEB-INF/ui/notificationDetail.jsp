@@ -6,27 +6,20 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<jsp:include page="studentHeader.jsp" flush="true"/>
+<jsp:include page="header.jsp" flush="true"/>
 <body>
 <section id="main-wrapper" class="theme-default">
-    <jsp:include page="studentNav.jsp" flush="true" />
+    <jsp:include page="navi.jsp" flush="true" />
 
     <!--main content start-->
     <section class="main-content-wrapper">
-		<div class="pageheader">
-		    <h1>通知详情</h1>
-		</div>
 		<section id="main-content" class="animated fadeInUp">
 		    <div class="row">
-		        <div class="col-md-12">
+		        <div class="col-md-1"></div>
+		        <div class="col-md-10">
 		            <div class="panel panel-default">
 		                <div class="panel-heading">
 		                    <h3 class="panel-title">通知详情</h3>
-		                    <div class="actions pull-right">
-		                        <i class="fa fa-expand"></i>
-		                        <i class="fa fa-chevron-down"></i>
-		                        <i class="fa fa-times"></i>
-		                    </div>
 		                </div>
 		                <div class="panel-body">
                             <h1>${notification.title}</h1><br/>
@@ -35,6 +28,7 @@
                         </div>
 		            </div>
 		        </div>
+		        <div class="col-md-1"></div>
 		    </div>
 		</section>
     </section>

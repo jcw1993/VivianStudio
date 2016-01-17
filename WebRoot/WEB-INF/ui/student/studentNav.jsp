@@ -37,11 +37,13 @@
                     <i class="fa  fa-fw fa-list"></i> 我的成绩
                 </a>
             </li>
+            <!--
 			<li>
                 <a href="uploadPage" title="作业上传">
                     <i class="fa  fa-fw fa-cloud-upload"></i> 作业上传
                 </a>
             </li>
+            -->
 			<li>
                 <a href="download" title="课件下载">
                     <i class="fa  fa-fw fa-cloud-download"></i> 课件下载

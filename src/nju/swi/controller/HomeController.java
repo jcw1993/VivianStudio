@@ -1,9 +1,12 @@
 package nju.swi.controller;
 
+import java.util.List;
+
 import nju.swi.auth.AdminIdentity;
 import nju.swi.auth.AuthService;
 import nju.swi.auth.StudentIdentity;
 import nju.swi.bll.manager.ManagerFactory;
+import nju.swi.bll.model.Notification;
 import nju.swi.bll.model.Student;
 import nju.swi.common.GenericResult;
 import nju.swi.common.NoneDataResult;
@@ -14,6 +17,10 @@ import com.jfinal.aop.Before;
 import com.jfinal.ext.interceptor.POST;
 
 public class HomeController extends BaseController {
+	
+	public void index() {
+		renderJsp("home");
+	}
 	
 	public void home() {
 		renderJsp("home");
@@ -76,6 +83,23 @@ public class HomeController extends BaseController {
 	public void contact()
 	{
 		renderJsp("contact");
+	}
+	
+	public void notificationList() {
+		GenericResult<List<Notification>> notificationResult = ManagerFactory.getNotificationManager().getAll();
+		if(notificationResult.getCode() == ResultCode.OK) {
+			setAttr("notifications", notificationResult.getData());
+		}
+		renderJsp("notificationList");
+	}
+	
+	public void notificationDetail() {
+		int notificationId = getParaToInt("notificationId");
+		GenericResult<Notification> notificationResult = ManagerFactory.getNotificationManager().getById(notificationId);
+		if(notificationResult.getCode() == ResultCode.OK) {
+			setAttr("notification", notificationResult.getData());
+		}
+		renderJsp("notificationDetail");
 	}
 	
 	@Before(POST.class)

@@ -1,6 +1,5 @@
 package nju.swi.controller;
 
-import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import nju.swi.common.ResultCode;
 import com.jfinal.aop.Before;
 import com.jfinal.ext.interceptor.POST;
 import com.jfinal.plugin.activerecord.Page;
-import com.jfinal.upload.UploadFile;
 
 public class AdminController extends BaseController {
 	
