@@ -43,7 +43,7 @@
                                     <tr>
                                         <td>${grades.title}</td>
                                         <td>
-                                        <a href="${grades.url}" class="deleteBtn btn btn-success btn-sm btn-trans" gradesId="${grades.id}">下载</a>
+                                        <a href="${grades.url}" class="btn btn-success btn-sm btn-trans" gradesId="${grades.id}">下载</a>
                                         <button type="button" class="deleteBtn btn btn-danger btn-sm btn-trans" gradesId="${grades.id}">删除</button>
                                         </td>
                                     </tr>

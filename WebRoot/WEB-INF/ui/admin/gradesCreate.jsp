@@ -22,7 +22,7 @@
 		                    <h3 class="panel-title">发布成绩</h3>
 		                </div>
 		                <div class="panel-body">
-                            <form id="editForm" action='createNotification' class='form-horizontal' role='form' method='post'>
+                            <form id="editForm" action='createGrades' class='form-horizontal' role='form' method='post'>
                                	<div class='form-group'>
 	                               	<label class="col-sm-3 control-label" for="homework">标题</label>
                                	    <div class='col-sm-6'>
