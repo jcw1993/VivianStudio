@@ -24,7 +24,7 @@
                         <div class="col-sm-4 col-md-4 col-lg-4 text-center">
                             <div class="contact-info">
                                 <i class="fa fa fa-phone"></i>
-                                <span> 何老师 </span><span>15951575787 ｜ <button type="button" class="btn btn-primary btn-xs">呼叫联系</button></span> 
+                                <span> 何老师 </span><span>15951575787</span> 
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4 text-center">

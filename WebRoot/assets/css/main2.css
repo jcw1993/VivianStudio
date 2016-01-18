@@ -316,7 +316,8 @@ canvas {
   color: #373737;
 }
 #header .navbar-right{
-  margin-right: 0px;
+  margin-right: 0px; 
+  /* modified by Matt. 2016.1.16  */
 }
 #header .profile ul > li h5,
 #header .profile ul > li p {
