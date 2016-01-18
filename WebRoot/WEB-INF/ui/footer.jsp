@@ -24,7 +24,7 @@
                         <div class="col-sm-4 col-md-4 col-lg-4 text-center">
                             <div class="contact-info">
                                 <i class="fa fa fa-phone"></i>
-                                <span> 何老师 </span><span>15951575787</span> 
+                                <span> 何老师 </span><span>159-5157-5787 ｜ <a href="tel:15951575787" class="btn btn-primary btn-xs">呼叫联系</a></span> 
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4 text-center">
