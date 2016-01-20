@@ -12,16 +12,21 @@
     <!--main content start-->
     <section class="main-content-wrapper">
         <div class="pageheader">
-		    <h1>通知管理</h1>
+		    <h1>课件管理</h1>
 		</div>
 		<section id="main-content" class="animated fadeInUp">
 		    <div class="row">
 		        <div class="col-md-12">
 		            <div class="panel panel-default">
 		                <div class="panel-heading">
-		                    <h3 class="panel-title">通知列表</h3>
+		                    <h3 class="panel-title">课件列表</h3>
 		                    <div class="actions pull-right">
-		                        <button id="createBtn" type="button" class="btn btn-success btn-sm">发布通知</button>
+		                   		<select id="levelSelect">
+		                    		<option value="1" <c:if test="${levelId == 1}">selected="selected"</c:if>>初一</option>
+		                    		<option value="2" <c:if test="${levelId == 2}">selected="selected"</c:if>>初二</option>
+		                    		<option value="3" <c:if test="${levelId == 3}">selected="selected"</c:if>>初三</option>
+		                    	</select>
+		                        <button id="createBtn" type="button" class="btn btn-success btn-sm">创建课件</button>
 		                    </div>
 		                </div>
 		                <div class="panel-body">
@@ -29,18 +34,17 @@
                                 <thead>
                                     <tr>
                                         <th>标题</th>
-                                        <th>内容</th>
                                         <th>操作</th>
                                     </tr>
                                 </thead>
-                                <c:if test="${notifications != null}">
+                                <c:if test="${materialList != null}">
                                 <tbody>
-                                <c:forEach items="${notifications}" var="notification">
+                                <c:forEach items="${materialList}" var="material">
                                     <tr>
-                                        <td>${notification.title}</td>
-                                        <td>${notification.content}</td>
+                                        <td>${material.title}</td>
                                         <td>
-                                        <button type="button" class="deleteBtn btn btn-danger btn-sm btn-trans" notificationId="${notification.id}">删除</button>
+                                        <a href="${material.url}" class="btn btn-success btn-sm btn-trans" gradesId="${grades.id}">下载</a>
+                                        <button type="button" class="deleteBtn btn btn-danger btn-sm btn-trans" materialId="${material.id}">删除</button>
                                         </td>
                                     </tr>
                					</c:forEach>
@@ -51,29 +55,32 @@
 		            </div>
 		        </div>
 		    </div>
-		    <jsp:include page="../pagination.jsp" flush="true" />
 		</section>
+    </section>
     </section>
     <!--main content end-->
 </section>
 
-<jsp:include page="../modal.jsp" flush="true" />
-
 <script type="text/javascript">
 $(function() {
-	$("#leftNav li:nth-child(4)").addClass("active");
+	$("#leftNav li:nth-child(2)").addClass("active");
+
+
+	$("#createBtn").click(function(e) {
+		location.href = "createMaterialPage";
+	});
 
 	$(".deleteBtn").click(function(e) {
-		var notificationId = $(this).attr("notificationId");
+		var materialId = $(this).attr("materialId");
 		$.ajax({
-			url: "deleteNotification",
+			url: "deleteMaterial",
 			method: "post",
 			data: {
-				notificationId: notificationId
+				materialId: materialId
 			},
 			success: function(r) {
 				if(r.code == 0) {
-					location.reload();
+					window.location = "materialManage?levelId=${levelId}"
 				}else {
 					showMessage("删除失败", "删除失败，请重试！");
 				}
@@ -81,10 +88,10 @@ $(function() {
 		});
 	});
 
-	$("#createBtn").click(function(e) {
-		location.href = "createNotificationPage";
+	$("#levelSelect").change(function(e) {
+		var levelId = $(this).val();
+		window.location = "materialManage?levelId=" + levelId;
 	});
-
 });
 </script>
 </body>

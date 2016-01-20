@@ -14,12 +14,10 @@ import nju.swi.common.ResultCode;
 
 import com.jfinal.aop.Before;
 import com.jfinal.ext.interceptor.POST;
-import com.jfinal.plugin.activerecord.Page;
 
 public class StudentController extends BaseController {
 
 	public void grades() {
-		// TODO: get login student object
 		int studentId = AuthService.getInstance().getIdentity(getRequest()).getId();
 		GenericResult<Student> studentResult = ManagerFactory.getStudentManager().getById(studentId);
 		if(studentResult.getCode() == ResultCode.OK) {
@@ -36,15 +34,13 @@ public class StudentController extends BaseController {
 	}
 	
 	public void download() {
-		int page = getParaToInt("pageIndex");
-		int size = getParaToInt("pageSize");
-		GenericResult<Page<Material>> materialResult = ManagerFactory.getMaterialManager().search(page, size);
-		if(materialResult.getCode() == ResultCode.OK && null != materialResult.getData()) {
-			setAttr("materials", materialResult.getData().getList());
-			setAttr("baseUrl", "download");
-			setAttr("pageIndex", page);
-			setAttr("itemCount", materialResult.getData().getTotalRow());
-			setAttr("itemsPerPage", 10);
+		int studentId = AuthService.getInstance().getIdentity(getRequest()).getId();
+		GenericResult<Student> studentResult = ManagerFactory.getStudentManager().getById(studentId);
+		if(studentResult.getCode() == ResultCode.OK) {
+			GenericResult<List<Material>> materialResult = ManagerFactory.getMaterialManager().getByLevel(studentResult.getData().getLevelId());
+			if(materialResult.getCode() == ResultCode.OK && null != materialResult.getData()) {
+				setAttr("materials", materialResult.getData());
+			}
 		}
 		renderJsp("student/download");
 	}
@@ -109,6 +105,4 @@ public class StudentController extends BaseController {
 		}
 		renderJsp("student/notificationDetail");
 	}
-	
-	
 }

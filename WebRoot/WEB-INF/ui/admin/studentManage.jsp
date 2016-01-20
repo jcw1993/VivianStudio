@@ -67,7 +67,7 @@
 
 <script type="text/javascript">
 $(function() {
-	$("#leftNav li:nth-child(2)").addClass("active");
+	$("#leftNav li:nth-child(3)").addClass("active");
 
     $(".deleteBtn").click(function(e) {
         var studentId = $(this).attr("studentId");

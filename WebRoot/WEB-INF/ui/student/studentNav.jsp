@@ -21,7 +21,7 @@
 
 	<ul class="nav navbar-nav navbar-right">
 	    <li>
-	     <button class="sidebar-toggle" id="toggle-right">
+	     <button class="sidebar-toggle" id="toggle-right" onclick="javascript:logout();">
                 <i class="fa fa-sign-out"></i>
           </button> 
 	    </li>

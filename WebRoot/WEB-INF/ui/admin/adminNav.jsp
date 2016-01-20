@@ -6,8 +6,8 @@
 <header id="header">
     <!--logo start-->
     <div class="brand">
-        <a href="index.html" class="logo">
-            <i class="icon-layers"></i>
+        <a href="gradesManage" class="logo">
+            <i class="icon-diamond"></i>
             <span>VIVIAN</span>STUDIO</a>
     </div>
     <!--logo end-->
@@ -44,7 +44,12 @@
         <ul id="leftNav" class="nav nav-pills nav-stacked">
  			<li>
                 <a href="gradesManage" title="成绩发布">
-                    <i class="fa  fa-fw"></i> 成绩发布
+                    <i class="fa  fa-fw"></i> 成绩管理
+                </a>
+            </li>
+            <li>
+                <a href="materialManage" title="课件管理">
+                    <i class="fa  fa-fw"></i> 课件管理
                 </a>
             </li>
 			<li>
@@ -57,11 +62,13 @@
                     <i class="fa  fa-fw"></i> 通知管理
                 </a>
             </li>
+            <!-- 
 			<li>
                 <a href="homeworkManage" title="作业查看">
                     <i class="fa  fa-fw"></i> 作业查看
                 </a>
             </li>
+            -->
         </ul>
     </nav>
 </aside>

@@ -42,7 +42,6 @@ public class Grades {
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
 	}
-	
 	public Grades() {}
 	
 	public Grades(GradesDao dao) {

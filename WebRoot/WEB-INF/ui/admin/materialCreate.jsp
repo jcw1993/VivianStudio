@@ -12,25 +12,25 @@
     <!--main content start-->
     <section class="main-content-wrapper">
        	<div class="pageheader">
-		    <h1>发布成绩</h1>
+		    <h1>创建课件</h1>
 		</div>
 		<section id="main-content" class="animated fadeInUp">
 		    <div class="row">
 		        <div class="col-md-12">
 		            <div class="panel panel-default">
 		                <div class="panel-heading">
-		                    <h3 class="panel-title">发布成绩</h3>
+		                    <h3 class="panel-title">创建课件</h3>
 		                </div>
 		                <div class="panel-body">
                             <form id="editForm" action='createGrades' class='form-horizontal' role='form' method='post'>
                                	<div class='form-group'>
-	                               	<label class="col-sm-3 control-label" for="homework">标题</label>
+	                               	<label class="col-sm-3 control-label">标题</label>
                                	    <div class='col-sm-6'>
                                	        <input type='text' class='form-control' id='title' name='title' placeholder='标题'>
                                	    </div>
                                	</div>
            	                    <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="homework">年级</label>
+                                    <label class="col-sm-3 control-label">年级</label>
                                     <div class="col-sm-6">
 										<select name="levelId" class="form-control input-default">
 											<option value="1">初一</option>
@@ -49,7 +49,7 @@
                                	<div class="form-group">
 	                               	<div class="col-sm-3"></div>
                                	    <div class="col-sm-6">
-                               	        <a id="createBtn" href="#" class="btn btn-primary btn-block">发布</a>
+                               	        <a id="createBtn" href="#" type="submit" class="btn btn-primary btn-block">创建</a>
                                	    </div>
                                	</div> 
                            	</form>
@@ -75,14 +75,14 @@ $(function() {
 			var formData = new FormData(this);
 			console.log("formData： " + formData);
 			$.ajax({
-				url: "createGrades",
+				url: "createMaterialPost",
 				type: "post",
 				data: formData,
 				processData: false,
 			    contentType: false,
 				success:function(r) {
 					if(r.code == 0) {
-						window.location = "gradesManage";
+						window.location = "materialManage";
 					}else {
 						showMessage("发布失败", "发布失败");
 					}
@@ -112,7 +112,6 @@ function validate() {
 	}
 	return true;
 }
-
 </script>
 </body>
 

@@ -1,27 +1,38 @@
 package nju.swi.controller;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import nju.swi.bll.manager.ManagerFactory;
 import nju.swi.bll.model.Grades;
+import nju.swi.bll.model.Material;
 import nju.swi.bll.model.Notification;
 import nju.swi.bll.model.Student;
+import nju.swi.common.Constants;
 import nju.swi.common.GenericResult;
 import nju.swi.common.NoneDataResult;
 import nju.swi.common.ResultCode;
+import nju.swi.util.CommonUtil;
+import nju.swi.util.QiniuUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jfinal.aop.Before;
 import com.jfinal.ext.interceptor.POST;
 import com.jfinal.plugin.activerecord.Page;
+import com.qiniu.common.QiniuException;
 
 public class AdminController extends BaseController {
+	private static Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
+	// 学生管理
 	public void studentManage() {
 		String keyword = getPara("keyword");
 		int page = getParaToInt("pageIndex");
-		int size = getParaToInt("pageSize");
-		GenericResult<Page<Student>> studentResult = ManagerFactory.getStudentManager().search(keyword, page, 10);
+		GenericResult<Page<Student>> studentResult = ManagerFactory.getStudentManager().search(keyword, page, Constants.DEFAULT_ITEM_OER_PAGE);
 		if(studentResult.getCode() == ResultCode.OK) {
 			setAttr("students", studentResult.getData().getList());
 			setAttr("baseUrl", "studentManage");
@@ -43,6 +54,7 @@ public class AdminController extends BaseController {
 		renderJson(deleteResult);
 	}
 	
+	// 成绩管理
 	public void gradesManage() {
 		int levelId = getParaToInt("levelId");
 		if(levelId < 1) {
@@ -62,10 +74,25 @@ public class AdminController extends BaseController {
 	
 	@Before(POST.class)
 	public void createGrades() {
+		File file = null;
+		try {
+			 file = getFile("file").getFile();
+		}catch(Error e) {
+			e.printStackTrace();
+		}
+		
 		String title = getPara("title");
 		int levelId = getParaToInt("levelId");
-		String url = getPara("url");
-		
+		String url = null;
+		if(null != file) {
+			String uuid = UUID.randomUUID().toString();
+			try {
+				url = QiniuUtil.uploadFile(uuid, file.getName(), file, QiniuUtil.getMimeTypeBySuffix(CommonUtil.getFileSuffix(file.getName())));
+			} catch (QiniuException e) {
+				logger.error(file.getName() + " upload failed", e);
+				return;
+			}
+		}
 		Grades grades = new Grades();
 		grades.setTitle(title);
 		grades.setLevelId(levelId);
@@ -82,14 +109,102 @@ public class AdminController extends BaseController {
 			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
 		}
 		
+		GenericResult<Grades> gradesResult = ManagerFactory.getGradesManager().getById(gradesId);
+		if(gradesResult.getCode() == ResultCode.OK) {
+			try {
+				QiniuUtil.deleteFile(gradesResult.getData().getUrl());
+			} catch (QiniuException e) {
+				logger.error(e.getMessage(), e);
+				renderJson(new NoneDataResult(ResultCode.E_DELETE_FILE_FAILED));
+				return;
+			}
+			NoneDataResult deleteResult = ManagerFactory.getMaterialManager().delete(gradesId);
+			renderJson(deleteResult);
+		}else {
+			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
+		}
+		
 		NoneDataResult deleteResult = ManagerFactory.getGradesManager().delete(gradesId);
 		renderJson(deleteResult);
 	}
 	
+	// 课件管理
+	public void materialManage() {
+		int levelId = getParaToInt("levelId");
+		if(levelId < 1) {
+			levelId = 1;
+		}
+		setAttr("levelId", levelId);
+		GenericResult<List<Material>> materialResult = ManagerFactory.getMaterialManager().getByLevel(levelId);
+		if(materialResult.getCode() == ResultCode.OK && null != materialResult.getData() && !materialResult.getData().isEmpty()) {
+			setAttr("materialList", materialResult.getData());
+		}
+		renderJsp("admin/materialManage");
+	}
+	
+	public void createMaterialPage() {
+		renderJsp("admin/materialCreate");
+	}
+	
+	public void createMaterialPost() {
+		File file = null;
+		try {
+			 file = getFile("file").getFile();
+		}catch(Error e) {
+			e.printStackTrace();
+		}
+		
+		String title = getPara("title");
+		int levelId = getParaToInt("levelId");
+		String url = null;
+		if(null != file) {
+			String uuid = UUID.randomUUID().toString();
+			try {
+				url = QiniuUtil.uploadFile(uuid, file.getName(), file, QiniuUtil.getMimeTypeBySuffix(CommonUtil.getFileSuffix(file.getName())));
+			} catch (QiniuException e) {
+				logger.error(file.getName() + " upload failed", e);
+				renderJson(new NoneDataResult(ResultCode.E_UPLOAD_FILE_FAILED));
+				return;
+			}
+		}else {
+			renderJson(new NoneDataResult(ResultCode.E_UPLOAD_FILE_FAILED));
+			return;
+		}
+		
+		Material material = new Material();
+		material.setTitle(title);
+		material.setLevelId(levelId);
+		material.setUrl(url);
+		
+		GenericResult<Integer> createResult = ManagerFactory.getMaterialManager().create(material);
+		renderJson(createResult);
+	}
+	
+	public void deleteMaterial() {
+		int materialId = getParaToInt("materialId");
+		if(materialId == 0) {
+			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
+		}
+		GenericResult<Material> materialResult = ManagerFactory.getMaterialManager().getById(materialId);
+		if(materialResult.getCode() == ResultCode.OK) {
+			try {
+				QiniuUtil.deleteFile(materialResult.getData().getUrl());
+			} catch (QiniuException e) {
+				logger.error(e.getMessage(), e);
+				renderJson(new NoneDataResult(ResultCode.E_DELETE_FILE_FAILED));
+				return;
+			}
+			NoneDataResult deleteResult = ManagerFactory.getMaterialManager().delete(materialId);
+			renderJson(deleteResult);
+		}else {
+			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
+		}
+	}
+	
+	// 通知管理
 	public void notificationManage() {
 		int page = getParaToInt("pageIndex");
-		int size = getParaToInt("pageSize");
-		GenericResult<Page<Notification>> notificationResult = ManagerFactory.getNotificationManager().search(page, 10);
+		GenericResult<Page<Notification>> notificationResult = ManagerFactory.getNotificationManager().search(page, Constants.DEFAULT_ITEM_OER_PAGE);
 		if(notificationResult.getCode() == ResultCode.OK) {
 			setAttr("notifications", notificationResult.getData().getList());
 			setAttr("baseUrl", "notificationManage");

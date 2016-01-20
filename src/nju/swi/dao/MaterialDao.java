@@ -1,7 +1,8 @@
 package nju.swi.dao;
 
+import java.util.List;
+
 import com.jfinal.plugin.activerecord.Model;
-import com.jfinal.plugin.activerecord.Page;
 
 public class MaterialDao extends Model<MaterialDao> {
 
@@ -9,7 +10,11 @@ public class MaterialDao extends Model<MaterialDao> {
 
 	public static final MaterialDao dao = new MaterialDao();
 	
-	public static Page<MaterialDao> search(int page, int size) {
-		return dao.paginate(page, size, "select *", "from material");
+	public static List<MaterialDao> getByLevel(int levelId) {
+		return dao.find("select * from material where level_id = ? order by created_time desc", levelId);
+	}
+	
+	public static void delete(int id) {
+		dao.deleteById(id);
 	}
 }

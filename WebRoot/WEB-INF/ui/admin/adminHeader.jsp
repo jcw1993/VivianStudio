@@ -46,6 +46,8 @@
 </head>
 
 <script type="text/javascript">
+var validFileSuffix = ["jpg", "jpeg", "doc", "docx", "xls", "xlsx", "ppt", "pptx"];
+
 function logout() {
     $.ajax({
         url:"../logout",

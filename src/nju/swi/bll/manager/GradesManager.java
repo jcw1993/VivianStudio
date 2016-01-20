@@ -30,11 +30,24 @@ public class GradesManager {
 				result.setCode(ResultCode.E_NO_DATA);
 			}
 		}catch(Exception e) {
-			logger.error(e.getMessage());
+			logger.error(e.getMessage(), e);
 			result.setCode(ResultCode.E_DATABASE_GET_ERROR);
 		}
 		return result;
 	}
+	
+	public GenericResult<Grades> getById(int id) {
+		GenericResult<Grades> result = new GenericResult<Grades>();
+		try {
+			GradesDao gradesDao = GradesDao.dao.findById(id);	
+			result.setData(new Grades(gradesDao));
+		}catch(Exception e) {
+			logger.error(e.getMessage(), e);
+			result.setCode(ResultCode.E_DATABASE_GET_ERROR);
+		}
+		return result;
+	}
+	
 	
 	public GenericResult<Integer> create(Grades grades) {
 		GenericResult<Integer> result = new GenericResult<Integer>();
@@ -44,19 +57,18 @@ public class GradesManager {
 			result.setData(gradesDao.getInt("id"));
 		} catch (Exception e) {
 			result.setCode(ResultCode.E_DATABASE_INSERT_ERROR);
-			logger.error("create gardes error: " + e.getMessage());
+			logger.error("create gardes error: " + e.getMessage(), e);
 		}
 		return result;
 	}
 	
 	public NoneDataResult delete(int id) {
 		NoneDataResult result = new NoneDataResult();
-		// TODO: delete cdn resource file
 		try {
 			GradesDao.delete(id);
 		} catch (Exception e) {
 			result.setCode(ResultCode.E_DATABASE_DELETE_ERROR);
-			logger.error("delete grades error: " + e.getMessage());
+			logger.error("delete grades error: " + e.getMessage(), e);
 		}
 		return result;
 	}
