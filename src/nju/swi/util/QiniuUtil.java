@@ -98,10 +98,10 @@ public class QiniuUtil {
 	}
 	
 	public static void deleteFile(String url) throws QiniuException {
-		if(StringUtils.isBlank(url) || !url.startsWith(DEFAULT_BUCKET)) {
+		if(StringUtils.isBlank(url) || !url.startsWith(QINIU_BASE_URL)) {
 			return;
 		}
-		String resourceKey = url.substring(DEFAULT_BUCKET.length());
+		String resourceKey = url.substring(QINIU_BASE_URL.length());
 		bucketManager.delete(DEFAULT_BUCKET, resourceKey);
 	}
 	
