@@ -182,6 +182,7 @@ public class AdminController extends BaseController {
 	}
 	
 	public void deleteMaterial() {
+		getFile();
 		int materialId = getParaToInt("materialId");
 		if(materialId == 0) {
 			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));

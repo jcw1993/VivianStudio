@@ -23,8 +23,9 @@ public class MyMultipartRequest {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public MyMultipartRequest(HttpServletRequest request) throws IOException {
+		// 设置utf8
 		MultipartParser parser = new MultipartParser(request, 1048576,
-				true, true, null);
+				true, true, "UTF-8");
 		if (request.getQueryString() != null) {
 			Hashtable queryParameters = HttpUtils.parseQueryString(request
 					.getQueryString());

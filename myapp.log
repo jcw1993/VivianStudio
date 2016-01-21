@@ -1525,3 +1525,18 @@ java.lang.RuntimeException: Directory /upload/ not exists and can not create dir
 
 2016-01-22 02:23:30
 [INFO]-[Thread: main]-[nju.swi.auth.AuthFilter.init()]: AuthencationFilter init
+
+2016-01-22 02:33:42
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2016-01-22 02:33:43
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2016-01-22 02:33:43
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15y9es5hp7p1xbbkti|5956263c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15y9es5hp7p1xbbkti|5956263c, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://localhost:3306/vivian_studio?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2016-01-22 02:33:43
+[WARN]-[Thread: main]-[net.sf.ehcache.config.ConfigurationFactory.parseConfiguration()]: No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/jinchengwei/.m2/repository/net/sf/ehcache/ehcache/2.8.2/ehcache-2.8.2.jar!/ehcache-failsafe.xml
+
+2016-01-22 02:33:43
+[INFO]-[Thread: main]-[nju.swi.auth.AuthFilter.init()]: AuthencationFilter init
