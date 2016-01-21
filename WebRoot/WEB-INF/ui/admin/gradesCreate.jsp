@@ -86,6 +86,9 @@ $(function() {
 					}else {
 						showMessage("发布失败", "发布失败");
 					}
+				},
+				error:function() {
+					showMessage("发布失败", "发布失败");
 				}
 			});
 		}

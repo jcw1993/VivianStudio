@@ -28,4 +28,6 @@ public class ResultCode {
 	
 	public static final int E_DELETE_FILE_FAILED = 0x00000043;
 	
+	public static final int E_GET_FILE_ERROR = 0x00000044;
+	
 }

@@ -1,9 +1,11 @@
 package nju.swi.controller;
 
-import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
+import javax.servlet.ServletException;
 
 import nju.swi.bll.manager.ManagerFactory;
 import nju.swi.bll.model.Grades;
@@ -15,6 +17,7 @@ import nju.swi.common.GenericResult;
 import nju.swi.common.NoneDataResult;
 import nju.swi.common.ResultCode;
 import nju.swi.util.CommonUtil;
+import nju.swi.util.MyMultipartRequest;
 import nju.swi.util.QiniuUtil;
 
 import org.slf4j.Logger;
@@ -73,25 +76,26 @@ public class AdminController extends BaseController {
 	}
 	
 	@Before(POST.class)
-	public void createGrades() {
-		File file = null;
-		try {
-			 file = getFile("file").getFile();
-		}catch(Error e) {
-			e.printStackTrace();
-		}
-		
-		String title = getPara("title");
-		int levelId = getParaToInt("levelId");
+	public void createGrades() throws IOException, ServletException {
+		MyMultipartRequest multipartRequest = new MyMultipartRequest(getRequest());
+		String title = (String) multipartRequest.getPara("title");
+		int levelId = Integer.parseInt((String)multipartRequest.getPara("levelId"));
+		byte[] data = (byte[]) multipartRequest.getPara("fileData");
+		String fileName = (String) multipartRequest.getPara("fileName");
+
 		String url = null;
-		if(null != file) {
+		if(null != data && data.length > 0) {
 			String uuid = UUID.randomUUID().toString();
 			try {
-				url = QiniuUtil.uploadFile(uuid, file.getName(), file, QiniuUtil.getMimeTypeBySuffix(CommonUtil.getFileSuffix(file.getName())));
+				url = QiniuUtil.uploadData(uuid, fileName, data, QiniuUtil.getMimeTypeBySuffix(CommonUtil.getFileSuffix(fileName)));
 			} catch (QiniuException e) {
-				logger.error(file.getName() + " upload failed", e);
+				logger.error(fileName + " upload failed", e);
+				renderJson(new NoneDataResult(ResultCode.E_UPLOAD_FILE_FAILED));
 				return;
 			}
+		}else {
+			renderJson(new NoneDataResult(ResultCode.E_UPLOAD_FILE_FAILED));
+			return;
 		}
 		Grades grades = new Grades();
 		grades.setTitle(title);
@@ -146,23 +150,20 @@ public class AdminController extends BaseController {
 		renderJsp("admin/materialCreate");
 	}
 	
-	public void createMaterialPost() {
-		File file = null;
-		try {
-			 file = getFile("file").getFile();
-		}catch(Error e) {
-			e.printStackTrace();
-		}
-		
-		String title = getPara("title");
-		int levelId = getParaToInt("levelId");
+	public void createMaterialPost() throws IOException {
+		MyMultipartRequest multipartRequest = new MyMultipartRequest(getRequest());
+		String title = (String) multipartRequest.getPara("title");
+		int levelId = Integer.parseInt((String)multipartRequest.getPara("levelId"));
+		byte[] data = (byte[]) multipartRequest.getPara("fileData");
+		String fileName = (String) multipartRequest.getPara("fileName");
+
 		String url = null;
-		if(null != file) {
+		if(null != data && data.length > 0) {
 			String uuid = UUID.randomUUID().toString();
 			try {
-				url = QiniuUtil.uploadFile(uuid, file.getName(), file, QiniuUtil.getMimeTypeBySuffix(CommonUtil.getFileSuffix(file.getName())));
+				url = QiniuUtil.uploadData(uuid, fileName, data, QiniuUtil.getMimeTypeBySuffix(CommonUtil.getFileSuffix(fileName)));
 			} catch (QiniuException e) {
-				logger.error(file.getName() + " upload failed", e);
+				logger.error(fileName + " upload failed", e);
 				renderJson(new NoneDataResult(ResultCode.E_UPLOAD_FILE_FAILED));
 				return;
 			}

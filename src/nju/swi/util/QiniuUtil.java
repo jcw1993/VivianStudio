@@ -91,6 +91,12 @@ public class QiniuUtil {
 		return QINIU_BASE_URL + resourceKey;
 	}
 	
+	public static String uploadData(String uuid, String originName, byte[] data, String mimeType) throws QiniuException {
+		String resourceKey = String.format(QINIU_FILE_KEY_FORMAT, uuid, originName);
+		upload(data, resourceKey, getUpToken(DEFAULT_BUCKET, resourceKey), mimeType);
+		return QINIU_BASE_URL + resourceKey;
+	}
+	
 	public static void deleteFile(String url) throws QiniuException {
 		if(StringUtils.isBlank(url) || !url.startsWith(DEFAULT_BUCKET)) {
 			return;
@@ -105,6 +111,16 @@ public class QiniuUtil {
 	
 	private static String upload(File file, String key, String upToken, String mimeType) throws QiniuException {
 		Response response = uploadManager.put(file, key, upToken, null, mimeType, false);
+		if(response.isOK()) {
+			return response.url();
+		}else {
+			logger.error(response.bodyString(), response);
+		}
+		return null;
+	}
+	
+	private static String upload(byte[] data, String key, String upToken, String mimeType) throws QiniuException {
+		Response response = uploadManager.put(data, key, upToken, null, mimeType, false);
 		if(response.isOK()) {
 			return response.url();
 		}else {

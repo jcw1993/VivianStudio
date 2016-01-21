@@ -5,12 +5,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import nju.swi.util.CommonUtil;
+
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.HttpKit;
 import com.jfinal.log.Logger;
+import com.oreilly.servlet.multipart.FilePart;
+import com.oreilly.servlet.multipart.MultipartParser;
+import com.oreilly.servlet.multipart.Part;
 
 public class BaseController extends Controller{
 	
@@ -59,6 +64,21 @@ public class BaseController extends Controller{
         }
         
         return gson.fromJson(s, c);
+	}
+	
+	public byte[] getMultipartFile() throws IOException {
+		MultipartParser parser = new MultipartParser(getRequest(), 1048576,
+				true, true, null);
+		Part part;
+		while ((part = parser.readNextPart()) != null) {
+			if (part.isFile()) {
+				FilePart filePart = (FilePart) part;
+//				String fileName = filePart.getFileName();
+				byte[] data = CommonUtil.getBytes(filePart.getInputStream());
+				return data;
+			}
+		}
+		return null;
 	}
 	
 	@Override

@@ -9,6 +9,7 @@ import nju.swi.dao.MaterialDao;
 import nju.swi.dao.NotificationDao;
 import nju.swi.dao.StudentDao;
 import nju.swi.dao.StudentHomeworkDao;
+import nju.swi.log.MyLogInterceptor;
 
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
@@ -28,15 +29,15 @@ public class AppConfig extends JFinalConfig {
 	private static final String password = "qyff2011";
 	
 	public static final String[] INVITATION_CODE = new String[] {"chuyi", "chuer", "chusan"};
-	
+//	
 //	private static final String jdbcUrl = "jdbc:mysql://rds4xf83282v1od67t1n.mysql.rds.aliyuncs.com:3306/r4up03p34l621t69?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
 //	private static final String userName = "r4up03p34l621t69";
 //	private static final String password = "njuswi";
 	
 	public void configConstant(Constants me) {
 		me.setDevMode(true);
-		me.setUploadedFileSaveDirectory("/Users/jinchengwei/Desktop/vivian_studio_upload/");
-//		me.setUploadedFileSaveDirectory("/upload");
+//		me.setUploadedFileSaveDirectory("/Users/jinchengwei/Desktop/vivian_studio_upload/");
+		me.setUploadedFileSaveDirectory("/upload");
 	}
 
 	public void configRoute(Routes me) {
@@ -44,6 +45,19 @@ public class AppConfig extends JFinalConfig {
 		me.add("/student", StudentController.class);
 		me.add("/admin", AdminController.class);
 	}
+	
+	@Override
+    public void configInterceptor(Interceptors me){
+        //全局拦截器，对所有请求拦截
+
+        //添加控制层全局拦截器
+        //interceptors.addGlobalActionInterceptor(new GlobalActionInterceptor());
+		me.addGlobalActionInterceptor(new MyLogInterceptor());
+        //添加业务层全局拦截器
+        //interceptors.addGlobalServiceInterceptor(new GlobalServiceInterceptor());
+		me.addGlobalServiceInterceptor(new MyLogInterceptor());
+
+    }
 
 	public void configPlugin(Plugins me) {
 		C3p0Plugin c3p0Plugin = new C3p0Plugin(jdbcUrl, userName, password);
@@ -57,9 +71,6 @@ public class AppConfig extends JFinalConfig {
 		activeRecordPlugin.addMapping("notification", NotificationDao.class);
 		activeRecordPlugin.addMapping("grades", GradesDao.class);
 		me.add(new EhCachePlugin());
-	}
-
-	public void configInterceptor(Interceptors me) {
 	}
 
 	public void configHandler(Handlers me) {
