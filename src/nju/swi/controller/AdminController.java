@@ -182,7 +182,6 @@ public class AdminController extends BaseController {
 	}
 	
 	public void deleteMaterial() {
-		getFile();
 		int materialId = getParaToInt("materialId");
 		if(materialId == 0) {
 			renderJson(new NoneDataResult(ResultCode.E_INVALID_PARAMETER));
@@ -207,7 +206,7 @@ public class AdminController extends BaseController {
 	public void notificationManage() {
 		int page = getParaToInt("pageIndex");
 		GenericResult<Page<Notification>> notificationResult = ManagerFactory.getNotificationManager().search(page, Constants.DEFAULT_ITEM_OER_PAGE);
-		if(notificationResult.getCode() == ResultCode.OK) {
+		if(notificationResult.getCode() == ResultCode.OK && null != notificationResult.getData()) {
 			setAttr("notifications", notificationResult.getData().getList());
 			setAttr("baseUrl", "notificationManage");
 			setAttr("pageIndex", page);

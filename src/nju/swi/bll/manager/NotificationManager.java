@@ -97,7 +97,7 @@ public class NotificationManager {
 		}
 		GenericResult<Page<Notification>> result = new GenericResult<Page<Notification>>();
 		GenericResult<List<Notification>> allResult = getAll();
-		if(allResult.getCode() == ResultCode.OK) {
+		if(allResult.getCode() == ResultCode.OK && null != allResult.getData()) {
 			int startIndex = (page - 1) * size;
 			List<Notification> notificationList = new ArrayList<Notification>();
 			int endIndex = Math.min(startIndex + size, allResult.getData().size());
