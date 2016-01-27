@@ -70,7 +70,7 @@
 
 <script type="text/javascript">
 $(function() {
-	$("#leftNav li:nth-child(4)").addClass("active");
+	$("#leftNav li:nth-child(3)").addClass("active");
 
     var level = levelMap[${student.levelId}];
     $("#levelLbl").text(level);

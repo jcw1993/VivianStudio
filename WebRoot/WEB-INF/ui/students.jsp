@@ -19,6 +19,26 @@
                         <section class="panel timeline-post">
                             <div class="panel-body">
                                 <ul>
+                                 	<li>
+                                        <div class="date">
+                                            <span>Shi</span>
+                                            <span class="small">Zhiming</span>
+                                        </div>
+                                        <h4>学员有话说 ｜ Vivian Studio </h4>
+                                        <p>史至明 ｜ 谷歌总部任软件工程师</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="http://7xpxna.com1.z0.glb.clouddn.com/vszhiming.png" alt="" />
+                                            </div>
+                                            
+                                        <p>本科：普林斯顿大学物理系</p>
+                                        <p>硕士：斯坦福大学计算机系</p>
+                                        <p>老师所能教给学生的，除了知识本身以外，更为重要的应该是学习的习惯和方法。因为知识都是阶段性暂时性的，但是获取新知识的方式与能力却能终生受益。</p>
+                                        <p>何老师便是如此一位传道授业的良师。当年我的英语成绩平平，但是从她独特的教学方法里，我所领悟到语言学习的方法让我在往后的学习工作中事半功倍。</p>
+                                        <p>非常庆幸能在英语启蒙的阶段遇到何老师！</p>
+                                        </div>
+                                        
+                                    </li>
                                     <li>
                                         <div class="date">
                                             <span>Tong</span>

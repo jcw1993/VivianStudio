@@ -63,7 +63,7 @@
 
 <script type="text/javascript">
 $(function() {
-	$("#leftNav li:nth-child(5)").addClass("active");
+	$("#leftNav li:nth-child(4)").addClass("active");
 
 	$(".detailBtn").click(function(e) {
 		var notificationId = $(this).attr("notificationId");
