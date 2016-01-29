@@ -12,7 +12,7 @@
             <div id="login-wrapper">
                 <header>
                     <div class="brand">
-                        <a href="index.html" class="logo">
+                        <a href="home" class="logo">
                             <i class="icon-diamond"></i>
                             <span>Vivian</span>Studio</a>
                     </div>

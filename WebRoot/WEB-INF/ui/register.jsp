@@ -12,7 +12,7 @@
             <div id="login-wrapper">
                 <header>
                     <div class="brand">
-                        <a href="index.html" class="logo">
+                        <a href="home" class="logo">
                             <i class="icon-layers"></i>
                             <span>Vivian</span>Studio</a>
                     </div>
@@ -123,7 +123,11 @@ function register() {
             data: data,
             success: function(r) {
                 if(r.code == 0) {
-                    window.location = "loginPage";
+                    showMessage("注册成功", "您已注册成功！3秒后自动跳转到登录页面");
+                    window.setTimeout(function() {
+                        window.location = "loginPage";    
+                    }, 3000);
+                    
                 }else if(r.code == 0x00000042) {
                     showMessage("邀请码不正确", "邀请码不正确");
                 }else {

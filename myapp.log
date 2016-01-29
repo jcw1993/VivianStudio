@@ -2013,3 +2013,21 @@ Caused by: java.lang.ClassNotFoundException: freemarker.template.TemplateExcepti
 
 2016-01-27 23:14:44
 [WARN]-[Thread: 1753788595@qtp-1268133114-0]-[com.jfinal.plugin.ehcache.CacheKit.getOrAddCache()]: Could not find cache config [nju.swi.bll.model.Notification], using default.
+
+2016-01-29 11:11:05
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2016-01-29 11:11:05
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2016-01-29 11:11:06
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15w9e12o20mphi0hf6|26e85af6, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15w9e12o20mphi0hf6|26e85af6, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://localhost:3306/vivian_studio?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2016-01-29 11:11:07
+[WARN]-[Thread: main]-[net.sf.ehcache.config.ConfigurationFactory.parseConfiguration()]: No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/jinchengwei/.m2/repository/net/sf/ehcache/ehcache/2.8.2/ehcache-2.8.2.jar!/ehcache-failsafe.xml
+
+2016-01-29 11:11:07
+[INFO]-[Thread: main]-[nju.swi.auth.AuthFilter.init()]: AuthencationFilter init
+
+2016-01-29 11:12:29
+[WARN]-[Thread: 1970935240@qtp-1904100058-4]-[com.jfinal.plugin.ehcache.CacheKit.getOrAddCache()]: Could not find cache config [nju.swi.bll.model.Student], using default.

@@ -7,7 +7,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" class="title"></h4>
+                <h4 class="modal-title title"></h4>
             </div>
             <div class="modal-body">
                 <p class="message"></p>
@@ -26,7 +26,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" class="title"></h4>
+                <h4 class="modal-title title"></h4>
             </div>
             <div class="modal-body">
                 
@@ -41,7 +41,7 @@
 
 <script type="text/javascript">
 function showMessage(title, message) {
-    $("#messageModal .title").text(title);
+    $("#messageModal .title").html(title);
     $("#messageModal .message").text(message);
     $("#messageModal").modal();   
 }
