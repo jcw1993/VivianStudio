@@ -24,9 +24,9 @@ import com.jfinal.plugin.ehcache.EhCachePlugin;
 
 public class AppConfig extends JFinalConfig {
 	
-	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/vivian_studio?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
-	private static final String userName = "devuser";
-	private static final String password = "qyff2011";
+	private static final String jdbcUrl = "jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_vivianstudio?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
+	private static final String userName = "jo0mo3z1xy";
+	private static final String password = "1hj025xi00iz0lyimh02ik14202kx1klyxkjik44";
 //	
 	public static final String[] INVITATION_CODE = new String[] {"chuyi", "chuer", "chusan"};
 //	
@@ -61,6 +61,7 @@ public class AppConfig extends JFinalConfig {
 
 	public void configPlugin(Plugins me) {
 		C3p0Plugin c3p0Plugin = new C3p0Plugin(jdbcUrl, userName, password);
+		c3p0Plugin.setMaxIdleTime(10);
 		me.add(c3p0Plugin);
 		ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(activeRecordPlugin);
