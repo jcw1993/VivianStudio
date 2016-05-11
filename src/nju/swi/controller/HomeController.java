@@ -109,7 +109,7 @@ public class HomeController extends BaseController {
 		GenericResult<String> result = new GenericResult<String>();
 		if(mail.equals("admin") && password.equals("admin")) {
 			AdminIdentity identity = new AdminIdentity();
-			AuthService.getInstance().setIdentity(identity, getRequest(), getResponse());
+			AuthService.getInstance().setIdentity(identity, getRequest());
 			result.setData("admin/gradesManage");
 			renderJson(result);
 			return;
@@ -120,7 +120,7 @@ public class HomeController extends BaseController {
 			StudentIdentity identity = new StudentIdentity();
 			identity.setId(studentResult.getData().getId());
 			identity.setMail(studentResult.getData().getMail());
-			AuthService.getInstance().setIdentity(identity, getRequest(), getResponse());
+			AuthService.getInstance().setIdentity(identity, getRequest());
 			result.setData("student/grades");
 		}else {
 			result.setCode(ResultCode.E_NO_DATA);
@@ -130,7 +130,7 @@ public class HomeController extends BaseController {
 	
 	@Before(POST.class)
 	public void logout() {
-		AuthService.getInstance().removeIdentity(getRequest(), getResponse());
+		AuthService.getInstance().removeIdentity(getRequest());
 		renderJson(new NoneDataResult(ResultCode.OK));
 	}
 

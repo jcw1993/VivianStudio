@@ -14,6 +14,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import nju.swi.util.UserInfoStorage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,8 +53,14 @@ public class AuthFilter implements Filter {
 		
 		String servletPath = httpServletRequest.getServletPath();
 		String baseUrl = httpServletRequest.getContextPath();
-		
-		Identity identity = AuthService.getInstance().getIdentity(httpServletRequest);
+	
+		HttpSession session = httpServletRequest.getSession(true);
+		String sessionId = session.getId();
+		Identity identity = (Identity) UserInfoStorage.getAdmin(sessionId);
+		if(null == identity) {
+			identity = (Identity) UserInfoStorage.getMember(sessionId);
+		}
+
 		if(null == identity) {
 			boolean authencated = false;
 			authencated |= urlMathPatterns(servletPath, unLimitedPatterns);
