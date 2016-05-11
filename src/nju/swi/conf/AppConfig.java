@@ -74,10 +74,7 @@ public class AppConfig extends JFinalConfig {
 		activeRecordPlugin.addMapping("notification", NotificationDao.class);
 		activeRecordPlugin.addMapping("grades", GradesDao.class);
 		
-		Configuration conf = new Configuration();
-		conf.setMaxBytesLocalDisk(0l);
-		CacheManager cacheManager = new CacheManager(conf);
-		me.add(new EhCachePlugin(cacheManager));
+		me.add(new EhCachePlugin());
 	}
 
 	public void configHandler(Handlers me) {
