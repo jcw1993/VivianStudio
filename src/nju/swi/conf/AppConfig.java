@@ -1,7 +1,5 @@
 package nju.swi.conf;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.config.Configuration;
 import nju.swi.controller.AdminController;
 import nju.swi.controller.HomeController;
 import nju.swi.controller.StudentController;
@@ -32,9 +30,9 @@ public class AppConfig extends JFinalConfig {
 //	
 	public static final String[] INVITATION_CODE = new String[] {"chuyi", "chuer", "chusan"};
 //	
-//	private static final String jdbcUrl = "jdbc:mysql://rds4xf83282v1od67t1n.mysql.rds.aliyuncs.com:3306/r4up03p34l621t69?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
-//	private static final String userName = "r4up03p34l621t69";
-//	private static final String password = "njuswi";
+//	private static final String jdbcUrl = "jdbc:mysql://localhost:3306/vivian_studio?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8";
+//	private static final String userName = "devuser";
+//	private static final String password = "qyff2011";
 	
 	public void configConstant(Constants me) {
 		me.setDevMode(true);
@@ -74,7 +72,7 @@ public class AppConfig extends JFinalConfig {
 		activeRecordPlugin.addMapping("notification", NotificationDao.class);
 		activeRecordPlugin.addMapping("grades", GradesDao.class);
 		
-		me.add(new EhCachePlugin());
+		me.add(new EhCachePlugin(ClassLoader.class.getResourceAsStream("ehcache.xml")));
 	}
 
 	public void configHandler(Handlers me) {
