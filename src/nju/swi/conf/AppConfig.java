@@ -1,5 +1,7 @@
 package nju.swi.conf;
 
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.config.Configuration;
 import nju.swi.controller.AdminController;
 import nju.swi.controller.HomeController;
 import nju.swi.controller.StudentController;
@@ -71,7 +73,11 @@ public class AppConfig extends JFinalConfig {
 		activeRecordPlugin.addMapping("student_homework", StudentHomeworkDao.class);
 		activeRecordPlugin.addMapping("notification", NotificationDao.class);
 		activeRecordPlugin.addMapping("grades", GradesDao.class);
-		me.add(new EhCachePlugin());
+		
+		Configuration conf = new Configuration();
+		conf.setMaxBytesLocalDisk(0l);
+		CacheManager cacheManager = new CacheManager(conf);
+		me.add(new EhCachePlugin(cacheManager));
 	}
 
 	public void configHandler(Handlers me) {
